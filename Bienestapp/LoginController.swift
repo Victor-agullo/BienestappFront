@@ -15,10 +15,16 @@ class LoginController: UIViewController {
     @IBOutlet weak var mailEntry: UITextField!
     @IBOutlet weak var passEntry: UITextField!
     
-    var urlString = "http://localhost:8888/bienestapp/public/index.php/api/register"
+    var urlString = "http://localhost:8888/bienestapp/public/index.php/api/"
+    let sessionManager = Alamofire.SessionManager.default
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let params = [
+            "name" : nameEntry.text!,
+            "email" : mailEntry.text!,
+            "password" : passEntry.text!
+        ]
         
     }
 
@@ -29,12 +35,13 @@ class LoginController: UIViewController {
             "password" : passEntry.text!
         ]
         
-        Alamofire.request(urlString, method: .post, parameters: params).responseJSON(completionHandler: { (response) in
-            if (response.result.value != nil) {
-                
-            }
-        })
     }
     
+    @IBAction func passRecovery(_ sender: UIButton) {
+        let params = [
+            "name" : nameEntry.text!,
+            "email" : mailEntry.text!,
+        ]
+        
+    }
 }
-

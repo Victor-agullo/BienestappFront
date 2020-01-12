@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JcB-md-Gca">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JcB-md-Gca">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,43 +33,104 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NH5-bo-guH">
-                                <rect key="frame" x="128" y="297" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NH5-bo-guH">
+                                <rect key="frame" x="130" y="288" width="154" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="|_____Name______">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.72549019607843135" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="18" name="AvenirNext-Heavy"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="namePhonePad" keyboardAppearance="alert" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e-mail" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c6b-l7-dp9">
-                                <rect key="frame" x="128" y="346" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c6b-l7-dp9">
+                                <rect key="frame" x="120" y="338" width="174" height="30"/>
+                                <color key="tintColor" red="0.37647058820000001" green="0.1058823529" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="|______e-mail_______">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.72549019607843135" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="18" name="AvenirNext-Heavy"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pass" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iGH-gM-ClH">
-                                <rect key="frame" x="128" y="397" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iGH-gM-ClH">
+                                <rect key="frame" x="110" y="388" width="194" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.37647058820000001" green="0.1058823529" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="___________________________">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.72549019607843135" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="11" name="AvenirNext-Heavy"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="continue" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pnw-mn-bp3">
-                                <rect key="frame" x="192" y="433" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Ok">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pnw-mn-bp3">
+                                <rect key="frame" x="100" y="438" width="214" height="50"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="senderButton:" destination="Rf3-v7-e6o" eventType="touchUpInside" id="fCa-6G-aWm"/>
                                 </connections>
                             </button>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienestapp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fN-lA-4gI">
+                                <rect key="frame" x="7" y="218" width="400" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="shadowColor" red="0.37647058823529411" green="0.10588235294117647" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="-2" height="-2"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YwS-nm-UzG">
+                                <rect key="frame" x="190" y="502" width="204" height="24"/>
+                                <state key="normal" title="¿Has olvidado la contraseña?">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="passRecovery:" destination="Rf3-v7-e6o" eventType="touchUpInside" id="eIx-Xg-c3H"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.39215686274509803" green="0.19497767857142856" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="h2H-5q-MDD" firstAttribute="trailing" secondItem="c6b-l7-dp9" secondAttribute="trailing" constant="120" id="1x7-UY-y1b"/>
+                            <constraint firstItem="NH5-bo-guH" firstAttribute="leading" secondItem="h2H-5q-MDD" secondAttribute="leading" constant="130" id="5p2-Fq-NlQ"/>
+                            <constraint firstItem="9fN-lA-4gI" firstAttribute="leading" secondItem="h2H-5q-MDD" secondAttribute="leading" constant="7" id="6xB-rZ-wwc"/>
+                            <constraint firstItem="YwS-nm-UzG" firstAttribute="leading" secondItem="h2H-5q-MDD" secondAttribute="leading" constant="190" id="AjW-j2-o8I"/>
+                            <constraint firstItem="h2H-5q-MDD" firstAttribute="trailing" secondItem="iGH-gM-ClH" secondAttribute="trailing" constant="110" id="CpX-CW-53D"/>
+                            <constraint firstItem="h2H-5q-MDD" firstAttribute="trailing" secondItem="NH5-bo-guH" secondAttribute="trailing" constant="130" id="PDI-gm-ZHA"/>
+                            <constraint firstItem="NH5-bo-guH" firstAttribute="top" secondItem="9fN-lA-4gI" secondAttribute="bottom" constant="20" id="Q4X-ig-K8a"/>
+                            <constraint firstItem="h2H-5q-MDD" firstAttribute="trailing" secondItem="9fN-lA-4gI" secondAttribute="trailing" constant="7" id="QAp-8G-BAQ"/>
+                            <constraint firstItem="h2H-5q-MDD" firstAttribute="trailing" secondItem="Pnw-mn-bp3" secondAttribute="trailing" constant="100" id="cng-XA-Mvj"/>
+                            <constraint firstItem="9fN-lA-4gI" firstAttribute="top" secondItem="h2H-5q-MDD" secondAttribute="top" constant="130" id="fPi-xY-zuf"/>
+                            <constraint firstItem="YwS-nm-UzG" firstAttribute="top" secondItem="Pnw-mn-bp3" secondAttribute="bottom" constant="20" id="fS2-Ag-4DJ"/>
+                            <constraint firstItem="Pnw-mn-bp3" firstAttribute="leading" secondItem="h2H-5q-MDD" secondAttribute="leading" constant="100" id="lyk-Qs-68X"/>
+                            <constraint firstItem="NH5-bo-guH" firstAttribute="top" secondItem="h2H-5q-MDD" secondAttribute="top" constant="200" id="nBu-Oc-7Ms"/>
+                            <constraint firstItem="h2H-5q-MDD" firstAttribute="bottom" secondItem="Pnw-mn-bp3" secondAttribute="bottom" constant="380" id="o4l-s8-41b"/>
+                            <constraint firstItem="c6b-l7-dp9" firstAttribute="leading" secondItem="h2H-5q-MDD" secondAttribute="leading" constant="120" id="pCx-Xi-0xj"/>
+                            <constraint firstItem="h2H-5q-MDD" firstAttribute="trailing" secondItem="YwS-nm-UzG" secondAttribute="trailing" constant="20" id="rf0-DB-QgK"/>
+                            <constraint firstItem="c6b-l7-dp9" firstAttribute="top" secondItem="NH5-bo-guH" secondAttribute="bottom" constant="20" id="rhL-fc-U6I"/>
+                            <constraint firstItem="iGH-gM-ClH" firstAttribute="leading" secondItem="h2H-5q-MDD" secondAttribute="leading" constant="110" id="s8A-f2-GcR"/>
+                            <constraint firstItem="h2H-5q-MDD" firstAttribute="bottom" secondItem="YwS-nm-UzG" secondAttribute="bottom" constant="336" id="sth-2u-kgu"/>
+                            <constraint firstItem="Pnw-mn-bp3" firstAttribute="top" secondItem="iGH-gM-ClH" secondAttribute="bottom" constant="20" id="twc-3e-wXv"/>
+                            <constraint firstItem="iGH-gM-ClH" firstAttribute="top" secondItem="c6b-l7-dp9" secondAttribute="bottom" constant="20" id="zB4-a6-G3O"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="h2H-5q-MDD"/>
                     </view>
                     <navigationItem key="navigationItem" title="LOGIN" id="l0L-Gu-vLU"/>
