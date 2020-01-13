@@ -25,7 +25,9 @@ class LoginController: UIViewController {
             "email" : mailEntry.text!,
             "password" : passEntry.text!
         ]
+        let url = URL(string: urlString+"login")!
         
+        Alamofire.request(url, method: .post, parameters: params)
     }
 
     @IBAction func senderButton(_ sender: UIButton) {
@@ -35,6 +37,24 @@ class LoginController: UIViewController {
             "password" : passEntry.text!
         ]
         
+        let url = URL(string: urlString+"register")!
+        
+        Alamofire.request(
+                url,
+                method: .post,
+                parameters: params
+            ).responseJSON {
+                (response) in
+                if let json = response.result.value {
+                    
+                    let jsonParseado = json as! [String: Any]
+                    
+                    UserDefaults.standard.setValue(jsonParseado, forKey: "token")
+                    UserDefaults.standard.synchronize()
+            }
+        }
+        
+ 
     }
     
     @IBAction func passRecovery(_ sender: UIButton) {
@@ -42,6 +62,7 @@ class LoginController: UIViewController {
             "name" : nameEntry.text!,
             "email" : mailEntry.text!,
         ]
-        
+        let url = URL(string: urlString+"forgot")!
+        Alamofire.request(url, method: .post, parameters: params)
     }
 }
