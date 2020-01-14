@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 
 class LoginController: UIViewController {
 
@@ -15,19 +14,18 @@ class LoginController: UIViewController {
     @IBOutlet weak var mailEntry: UITextField!
     @IBOutlet weak var passEntry: UITextField!
     
-    var urlString = "http://localhost:8888/bienestapp/public/index.php/api/"
-    let sessionManager = Alamofire.SessionManager.default
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let params = [
-            "name" : nameEntry.text!,
-            "email" : mailEntry.text!,
-            "password" : passEntry.text!
-        ]
-        let url = URL(string: urlString+"login")!
         
-        Alamofire.request(url, method: .post, parameters: params)
+        if let params = UserDefaults.standard.value(forKey: "user") {
+            
+            let login = HttpMessenger.post(endpoint: "login", params: [params])
+            
+            if login.self {
+                self.performSegue(withIdentifier: "Logged", sender: UIStoryboardSegue.self)
+            }
+        }
     }
 
     @IBAction func senderButton(_ sender: UIButton) {
@@ -39,22 +37,22 @@ class LoginController: UIViewController {
         
         let url = URL(string: urlString+"register")!
         
-        Alamofire.request(
-                url,
-                method: .post,
-                parameters: params
-            ).responseJSON {
+        Alamofire.request(url, method: .post, parameters: params).responseJSON {
                 (response) in
                 if let json = response.result.value {
                     
                     let jsonParseado = json as! [String: Any]
                     
-                    UserDefaults.standard.setValue(jsonParseado, forKey: "token")
-                    UserDefaults.standard.synchronize()
+                    switch response.result {
+                    case .success:
+                        self.performSegue(withIdentifier: "Logged", sender: UIButton.self)
+                        UserDefaults.standard.setValue(jsonParseado, forKey: "token")
+                        UserDefaults.standard.setValue(params, forKey: "user")
+                    case .failure:
+                        print("invalidado")
+                    }
             }
         }
-        
- 
     }
     
     @IBAction func passRecovery(_ sender: UIButton) {
