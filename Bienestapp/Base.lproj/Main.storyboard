@@ -138,7 +138,7 @@
                         <outlet property="mailEntry" destination="c6b-l7-dp9" id="frw-Li-AWO"/>
                         <outlet property="nameEntry" destination="NH5-bo-guH" id="rFx-fd-ccO"/>
                         <outlet property="passEntry" destination="iGH-gM-ClH" id="IEQ-UM-e3K"/>
-                        <segue destination="JcB-md-Gca" kind="show" identifier="Logged" id="vEM-BD-sjC"/>
+                        <segue destination="x88-5u-406" kind="showDetail" identifier="Logged" id="fUT-8T-x9w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fq5-NW-RDz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -269,4 +269,7 @@
             <point key="canvasLocation" x="1625" y="167"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="fUT-8T-x9w"/>
+    </inferredMetricsTieBreakers>
 </document>

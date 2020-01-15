@@ -7,21 +7,22 @@
 //
 
 import UIKit
-
+/*
 class MainController:UIViewController, UICollectionViewDataSource {
-    
+ 
     override func viewDidLoad() {
-        <#code#>
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        
     }
-    
+ 
     
     
 }
+*/

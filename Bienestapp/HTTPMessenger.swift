@@ -12,21 +12,50 @@ import Alamofire
 var HttpMessenger = HTTPMessenger()
 
 class HTTPMessenger {
+    
     let urlString = "http://localhost:8888/bienestapp/public/index.php/api/"
     
-    func post(endpoint:String, params: Dictionary<String, Any>) -> Int {
-
-        let url = urlModder(endpoint: endpoint)
+    func urlModder(direction: String) -> URL {
         
-        var code = Alamofire.request(url, method: .post, parameters: params).validate().response {
-            response in response.response?.statusCode
-            }
+        let url = URL(string: urlString+direction)!
         
-        return
+        return url
+    }
+    
+    func postBool(endpoint: String, params: Any) -> Bool{
+        
+        let url = urlModder(direction: endpoint)
+        
+        if Alamofire.request(url, method: .post, parameters: params as? Parameters).responseJSON { response in
+                switch response.result {
+                case .success:
+                    if endpoint == "login"{
+                        self.tokenChecker(response: response)
+                    } else if endpoint == "register"{
+                        UserDefaults.standard.setValue(params, forKey: "user")
+                    }
+                case .failure:
+                    break
+                }
+            } {
+            
         }
     }
     
-    func urlModder(endpoint: String) -> URL {
-        let url = URL(string: urlString+"login")!
+    func post(endpoint: String, params: Any) {
+        
+        let url = urlModder(direction: endpoint)
+        
+        Alamofire.request(url, method: .post, parameters: params as? Parameters)
     }
+    
+    func tokenChecker(response: DataResponse<Any>) {
+        
+        let jsonToken = response.result.value!
+        
+        let token = jsonToken as! [String: Any]
+        
+        UserDefaults.standard.setValue(token["token"], forKey: "token")
+    }
+    
 }
