@@ -33,9 +33,27 @@ class LoginController: UIViewController {
     
     func viewJumper(parameters: Any, uri: String, from: Any) {
         
-        HttpMessenger.postBool(endpoint: uri, params: parameters)
+        let hadConnected = HttpMessenger.post(endpoint: uri, params: parameters)
         
-        performSegue(withIdentifier: "Logged", sender: from)
+        hadConnected.responseJSON { response in
+            
+            switch response.result {
+                
+            case .success:
+                
+                if uri == "login"{
+                    HttpMessenger.tokenSavior(response: response)
+                    
+                    self.performSegue(withIdentifier: "Logged", sender: from)
+                    
+                } else if uri == "register"{
+                    UserDefaults.standard.setValue(parameters, forKey: "user")
+                }
+                
+            case .failure:
+                break
+            }
+        }
     }
     
     @IBAction func passRecovery(_ sender: UIButton) {
