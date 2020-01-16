@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainCell: UICollectionViewCell {
+class AppCells: UICollectionViewCell {
     
     @IBOutlet weak var AppIcon: UIImageView!
     @IBOutlet weak var AppTime: UILabel!

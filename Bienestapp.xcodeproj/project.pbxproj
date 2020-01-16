@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7F1DEDF823CDDB90008B79EB /* HTTPMessenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1DEDF723CDDB90008B79EB /* HTTPMessenger.swift */; };
-		7F30EB4F23CDD1350044D9A6 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30EB4E23CDD1350044D9A6 /* MainCell.swift */; };
+		7F30EB4F23CDD1350044D9A6 /* AppCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30EB4E23CDD1350044D9A6 /* AppCells.swift */; };
 		7F61866723CC781300F369E9 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7F61866623CC781300F369E9 /* Settings.bundle */; };
 		7FA84C5223C5D152008046D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA84C5123C5D152008046D7 /* AppDelegate.swift */; };
 		7FA84C5423C5D152008046D7 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA84C5323C5D152008046D7 /* LoginController.swift */; };
@@ -23,7 +23,7 @@
 		22F961D7E203CBB2E215246F /* Pods-Bienestapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bienestapp.debug.xcconfig"; path = "Target Support Files/Pods-Bienestapp/Pods-Bienestapp.debug.xcconfig"; sourceTree = "<group>"; };
 		34F8253464547E97A696A343 /* Pods-Bienestapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bienestapp.release.xcconfig"; path = "Target Support Files/Pods-Bienestapp/Pods-Bienestapp.release.xcconfig"; sourceTree = "<group>"; };
 		7F1DEDF723CDDB90008B79EB /* HTTPMessenger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMessenger.swift; sourceTree = "<group>"; };
-		7F30EB4E23CDD1350044D9A6 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
+		7F30EB4E23CDD1350044D9A6 /* AppCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCells.swift; sourceTree = "<group>"; };
 		7F61866623CC781300F369E9 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		7FA84C4E23C5D152008046D7 /* Bienestapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bienestapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA84C5123C5D152008046D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 				7FA84C5323C5D152008046D7 /* LoginController.swift */,
 				7F61866623CC781300F369E9 /* Settings.bundle */,
 				7FA84C5523C5D152008046D7 /* Main.storyboard */,
-				7F30EB4E23CDD1350044D9A6 /* MainCell.swift */,
+				7F30EB4E23CDD1350044D9A6 /* AppCells.swift */,
 				7F1DEDF723CDDB90008B79EB /* HTTPMessenger.swift */,
 				7FA84C5823C5D154008046D7 /* Assets.xcassets */,
 				7FA84C5A23C5D154008046D7 /* LaunchScreen.storyboard */,
@@ -224,7 +224,7 @@
 				7F1DEDF823CDDB90008B79EB /* HTTPMessenger.swift in Sources */,
 				7FA84C5423C5D152008046D7 /* LoginController.swift in Sources */,
 				7FE31DD323C7464500EF5530 /* MainController.swift in Sources */,
-				7F30EB4F23CDD1350044D9A6 /* MainCell.swift in Sources */,
+				7F30EB4F23CDD1350044D9A6 /* AppCells.swift in Sources */,
 				7FA84C5223C5D152008046D7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
