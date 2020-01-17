@@ -9,13 +9,20 @@
 import UIKit
 class MainController:UIViewController, UICollectionViewDataSource {
     
-    func infoGatherer() -> Array<Any> {
-        //Un get
-        HttpMessenger.post(endpoint: <#T##String#>, params: <#T##Any#>)
+    func infoGatherer() {
         
-        let some: [String] = ["",""]
-        return some
+        HttpMessenger.get(endpoint: "times").responseJSON { response in
+            let object = HttpMessenger.jsonOpener(response: response)
+            
+            print(object)
+            
+            let itemsInSection = object.count
+            
+            print(itemsInSection)
+        }
     }
+    
+    let array: [String] = ["1", "2", "3"]
     
     @IBOutlet weak var collectionOfApps: UICollectionView!
     
@@ -34,7 +41,6 @@ class MainController:UIViewController, UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionAppCells", for: indexPath) as! AppCells
         
-        //cell.appName.text = array[indexPath.row]
         cell.AppName.text = array[indexPath.row]
         
         return cell

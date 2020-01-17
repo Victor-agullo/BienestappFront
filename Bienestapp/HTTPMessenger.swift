@@ -30,12 +30,29 @@ class HTTPMessenger {
         return post
     }
     
+    func get(endpoint: String) -> DataRequest {
+        
+        let url = urlModder(direction: endpoint)
+        
+        let token = UserDefaults.standard.value(forKey: "token")
+        
+        let get = Alamofire.request(url, method: .get, headers: token as? HTTPHeaders)
+        
+        return get
+    }
+    
     func tokenSavior(response: DataResponse<Any>) {
         
-        let jsonToken = response.result.value!
-        
-        let token = jsonToken as! [String: Any]
+        let token = jsonOpener(response: response)
         
         UserDefaults.standard.setValue(token["token"], forKey: "token")
+    }
+    
+    func jsonOpener(response: DataResponse<Any>) -> [String: Any] {
+        let jsonToken = response.result.value!
+        
+        let object = jsonToken as! [String: Any]
+        
+        return object
     }
 }

@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NH5-bo-guH">
-                                <rect key="frame" x="130" y="244" width="154" height="103"/>
+                                <rect key="frame" x="130" y="244" width="154" height="102"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <attributedString key="attributedText">
@@ -49,7 +49,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="namePhonePad" keyboardAppearance="alert" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c6b-l7-dp9">
-                                <rect key="frame" x="120" y="367" width="174" height="23.5"/>
+                                <rect key="frame" x="120" y="366" width="174" height="24"/>
                                 <color key="tintColor" red="0.37647058820000001" green="0.1058823529" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <attributedString key="attributedText">
                                     <fragment content="|______e-mail_______">
@@ -63,7 +63,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iGH-gM-ClH">
-                                <rect key="frame" x="110" y="410.5" width="194" height="15.5"/>
+                                <rect key="frame" x="110" y="410" width="194" height="16"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.37647058820000001" green="0.1058823529" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <attributedString key="attributedText">
@@ -78,7 +78,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="continue" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pnw-mn-bp3">
-                                <rect key="frame" x="100" y="446" width="214" height="36"/>
+                                <rect key="frame" x="100" y="446" width="87" height="36"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
                                 <state key="normal" title="Register">
@@ -106,6 +106,18 @@
                                     <action selector="passRecovery:" destination="Rf3-v7-e6o" eventType="touchUpInside" id="eIx-Xg-c3H"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtQ-RL-chP">
+                                <rect key="frame" x="192" y="446" width="57" height="36"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButton:" destination="Rf3-v7-e6o" eventType="touchUpInside" id="T0A-mL-ipY"/>
+                                    <action selector="senderButton:" destination="Rf3-v7-e6o" eventType="touchUpInside" id="GhB-u5-fY2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -117,7 +129,7 @@
                             <constraint firstItem="h2H-5q-MDD" firstAttribute="trailing" secondItem="NH5-bo-guH" secondAttribute="trailing" constant="130" id="PDI-gm-ZHA"/>
                             <constraint firstItem="NH5-bo-guH" firstAttribute="top" secondItem="9fN-lA-4gI" secondAttribute="bottom" constant="20" id="Q4X-ig-K8a"/>
                             <constraint firstItem="h2H-5q-MDD" firstAttribute="trailing" secondItem="9fN-lA-4gI" secondAttribute="trailing" constant="7" id="QAp-8G-BAQ"/>
-                            <constraint firstItem="h2H-5q-MDD" firstAttribute="trailing" secondItem="Pnw-mn-bp3" secondAttribute="trailing" constant="100" id="cng-XA-Mvj"/>
+                            <constraint firstItem="CtQ-RL-chP" firstAttribute="leading" secondItem="Pnw-mn-bp3" secondAttribute="trailing" constant="5" id="dNt-QX-6KO"/>
                             <constraint firstItem="9fN-lA-4gI" firstAttribute="top" secondItem="h2H-5q-MDD" secondAttribute="top" constant="130" id="fPi-xY-zuf"/>
                             <constraint firstItem="YwS-nm-UzG" firstAttribute="top" secondItem="Pnw-mn-bp3" secondAttribute="bottom" constant="20" id="fS2-Ag-4DJ"/>
                             <constraint firstItem="Pnw-mn-bp3" firstAttribute="leading" secondItem="h2H-5q-MDD" secondAttribute="leading" constant="100" id="lyk-Qs-68X"/>
@@ -129,6 +141,7 @@
                             <constraint firstItem="iGH-gM-ClH" firstAttribute="leading" secondItem="h2H-5q-MDD" secondAttribute="leading" constant="110" id="s8A-f2-GcR"/>
                             <constraint firstItem="h2H-5q-MDD" firstAttribute="bottom" secondItem="YwS-nm-UzG" secondAttribute="bottom" constant="336" id="sth-2u-kgu"/>
                             <constraint firstItem="Pnw-mn-bp3" firstAttribute="top" secondItem="iGH-gM-ClH" secondAttribute="bottom" constant="20" id="twc-3e-wXv"/>
+                            <constraint firstItem="CtQ-RL-chP" firstAttribute="baseline" secondItem="Pnw-mn-bp3" secondAttribute="baseline" id="wuD-Ue-yOV"/>
                             <constraint firstItem="iGH-gM-ClH" firstAttribute="top" secondItem="c6b-l7-dp9" secondAttribute="bottom" constant="20" id="zB4-a6-G3O"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h2H-5q-MDD"/>
@@ -143,7 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fq5-NW-RDz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1649" y="-305"/>
+            <point key="canvasLocation" x="-1649.2753623188407" y="-305.35714285714283"/>
         </scene>
         <!--Main Controller-->
         <scene sceneID="d4S-Bz-2Qv">

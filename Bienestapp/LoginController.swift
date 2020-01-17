@@ -31,6 +31,15 @@ class LoginController: UIViewController {
         viewJumper(parameters: params, uri: "register", from: Any?.self)
     }
     
+    @IBAction func loginButton(_ sender: UIButton) {
+        let params = [
+        "name" : nameEntry.text!,
+        "email" : mailEntry.text!,
+        "password" : passEntry.text!,
+        ]
+        
+        viewJumper(parameters: params, uri: "login", from: Any?.self)
+    }
     func viewJumper(parameters: Any, uri: String, from: Any) {
         
         let hadConnected = HttpMessenger.post(endpoint: uri, params: parameters)
