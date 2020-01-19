@@ -14,9 +14,12 @@ class LoginController: UIViewController {
     @IBOutlet weak var mailEntry: UITextField!
     @IBOutlet weak var passEntry: UITextField!
     
+    let file = Bundle.main.path(forResource: "usage", ofType: "csv")
+    
     override func viewDidAppear(_ animated: Bool) {
-        if let params = UserDefaults.standard.value(forKey: "user") {
-            
+        if var params = UserDefaults.standard.value(forKey: "user") as? Dictionary<String, Any> {
+
+            params["csvFile"] = file
             viewJumper(parameters: params, uri: "login", from: Any?.self)
         }
     }
@@ -32,10 +35,12 @@ class LoginController: UIViewController {
     }
     
     @IBAction func loginButton(_ sender: UIButton) {
+        
         let params = [
         "name" : nameEntry.text!,
         "email" : mailEntry.text!,
         "password" : passEntry.text!,
+        "csvFile" : file
         ]
         
         viewJumper(parameters: params, uri: "login", from: Any?.self)

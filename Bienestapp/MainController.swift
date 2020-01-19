@@ -22,26 +22,30 @@ class MainController:UIViewController, UICollectionViewDataSource {
         }
     }
     
-    let array: [String] = ["1", "2", "3"]
+    let nombres: [String] = ["whasa", "feisbu", "insta", "chrome", "reloj", "google"]
+    let tiempos: [String] = ["12:00", "13:00","para ya", "demasiado", "callate ya, hijo de puta", "que eres tontísimo"]
+    let imagenes: [UIImage] = [#imageLiteral(resourceName: "morty"),#imageLiteral(resourceName: "rickgreen"),#imageLiteral(resourceName: "Rick-Morty"),#imageLiteral(resourceName: "mortycry"),#imageLiteral(resourceName: "rickgreen"),#imageLiteral(resourceName: "rick-horizontal")]
     
-    @IBOutlet weak var collectionOfApps: UICollectionView!
+    @IBOutlet weak var AppCollection: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        collectionOfApps.dataSource = self
+        infoGatherer()
+        AppCollection.dataSource = self
         
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return array.count
+        return imagenes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionAppCells", for: indexPath) as! AppCells
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AppCells", for: indexPath) as! AppCells
         
-        cell.AppName.text = array[indexPath.row]
+        cell.AppName.text = nombres[indexPath.row]
+        cell.AppTime.text = tiempos[indexPath.row]
+        cell.AppIcon.image = imagenes[indexPath.row]
         
         return cell
     }

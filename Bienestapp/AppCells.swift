@@ -10,7 +10,8 @@ import UIKit
 
 class AppCells: UICollectionViewCell {
     
-    //@IBOutlet weak var AppIcon: UIImageView!
-    //@IBOutlet weak var AppTime: UILabel!
+
+    @IBOutlet weak var AppIcon: UIImageView!
+    @IBOutlet weak var AppTime: UILabel!
     @IBOutlet weak var AppName: UILabel!
 }
