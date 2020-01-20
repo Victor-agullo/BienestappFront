@@ -23,17 +23,18 @@ class MainController:UIViewController, UICollectionViewDataSource, UICollectionV
         
         AppCollection.dataSource = self
         AppCollection.delegate = self
-        
         infoGatherer()
     }
     
     func infoGatherer() {
         
-        HttpMessenger.get(endpoint: "times").responseJSON { response in
+        let get = HttpMessenger.get(endpoint: "times")
+        
+            get.responseJSON { response in
             if let JSON = response.result.value{
                 
                 self.jsonArray = JSON as? NSArray
-                
+                print(JSON)
                 for item in self.jsonArray! as! [NSDictionary]{
                     
                     let name = item["name"] as? String

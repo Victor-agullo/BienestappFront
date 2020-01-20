@@ -14,9 +14,7 @@ class LoginController: UIViewController {
     @IBOutlet weak var mailEntry: UITextField!
     @IBOutlet weak var passEntry: UITextField!
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
         
         if var data = UserDefaults.standard.dictionary(forKey: "user") {
             let file = usagesProvider()
@@ -31,7 +29,6 @@ class LoginController: UIViewController {
         let name = "usage.csv"
         
         let directory = FileManager.default.urls(for:.documentDirectory, in: .userDomainMask)
-        
         let rute = directory.first?.appendingPathComponent(name)
 
         return rute!
@@ -99,6 +96,6 @@ class LoginController: UIViewController {
             "email" : mailEntry.text!,
         ]
         
-        HttpMessenger.post(endpoint: "forgot", params: params)
+        let _ = HttpMessenger.post(endpoint: "forgot", params: params)
     }
 }

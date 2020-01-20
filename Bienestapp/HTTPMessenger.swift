@@ -34,10 +34,12 @@ class HTTPMessenger {
         
         let url = urlModder(direction: endpoint)
         
-        let token = UserDefaults.standard.value(forKey: "token")
+        let token = [
+            "token" : UserDefaults.standard.value(forKey: "token")!
+        ]as! [String:String]
         
-        let get = Alamofire.request(url, method: .get, headers: token as? HTTPHeaders)
-        
+        let get = Alamofire.request(url, method: .get, headers: token)
+
         return get
     }
     
