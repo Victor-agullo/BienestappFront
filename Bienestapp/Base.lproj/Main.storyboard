@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rf3-v7-e6o">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rf3-v7-e6o">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" indicatorStyle="white" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ArJ-jh-Ae6" userLabel="AppCollection">
-                                <rect key="frame" x="7" y="148" width="400" height="654"/>
+                                <rect key="frame" x="7" y="104" width="400" height="698"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="RdZ-Hc-yjM">
                                     <size key="itemSize" width="200" height="100"/>
@@ -180,17 +180,20 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="continue" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pnw-mn-bp3">
-                                <rect key="frame" x="100" y="446" width="87" height="36"/>
+                                <rect key="frame" x="77" y="446" width="112" height="36"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="112" id="MWT-kc-x1N"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
                                 <state key="normal" title="Register">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="senderButton:" destination="Rf3-v7-e6o" eventType="touchUpInside" id="fCa-6G-aWm"/>
+                                    <action selector="registerButton:" destination="Rf3-v7-e6o" eventType="touchUpInside" id="W0z-RC-gvd"/>
                                 </connections>
                             </button>
-                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienestapp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fN-lA-4gI">
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienestapp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fN-lA-4gI">
                                 <rect key="frame" x="7" y="174" width="400" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
@@ -209,15 +212,17 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtQ-RL-chP">
-                                <rect key="frame" x="192" y="446" width="57" height="36"/>
+                                <rect key="frame" x="213" y="446" width="112" height="36"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="112" id="FzV-LX-bs4"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginButton:" destination="Rf3-v7-e6o" eventType="touchUpInside" id="T0A-mL-ipY"/>
-                                    <action selector="senderButton:" destination="Rf3-v7-e6o" eventType="touchUpInside" id="GhB-u5-fY2"/>
+                                    <action selector="loginButton:" destination="Rf3-v7-e6o" eventType="touchUpInside" id="9Tv-YH-qSL"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -228,13 +233,15 @@
                             <constraint firstItem="9fN-lA-4gI" firstAttribute="leading" secondItem="h2H-5q-MDD" secondAttribute="leading" constant="7" id="6xB-rZ-wwc"/>
                             <constraint firstItem="YwS-nm-UzG" firstAttribute="leading" secondItem="h2H-5q-MDD" secondAttribute="leading" constant="190" id="AjW-j2-o8I"/>
                             <constraint firstItem="h2H-5q-MDD" firstAttribute="trailing" secondItem="iGH-gM-ClH" secondAttribute="trailing" constant="110" id="CpX-CW-53D"/>
+                            <constraint firstItem="h2H-5q-MDD" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CtQ-RL-chP" secondAttribute="trailing" symbolic="YES" id="KFg-Ha-z0q"/>
                             <constraint firstItem="h2H-5q-MDD" firstAttribute="trailing" secondItem="NH5-bo-guH" secondAttribute="trailing" constant="130" id="PDI-gm-ZHA"/>
                             <constraint firstItem="NH5-bo-guH" firstAttribute="top" secondItem="9fN-lA-4gI" secondAttribute="bottom" constant="20" id="Q4X-ig-K8a"/>
                             <constraint firstItem="h2H-5q-MDD" firstAttribute="trailing" secondItem="9fN-lA-4gI" secondAttribute="trailing" constant="7" id="QAp-8G-BAQ"/>
-                            <constraint firstItem="CtQ-RL-chP" firstAttribute="leading" secondItem="Pnw-mn-bp3" secondAttribute="trailing" constant="5" id="dNt-QX-6KO"/>
+                            <constraint firstItem="CtQ-RL-chP" firstAttribute="baseline" secondItem="Pnw-mn-bp3" secondAttribute="baseline" id="VlO-5M-OVA"/>
+                            <constraint firstItem="Pnw-mn-bp3" firstAttribute="leading" secondItem="h2H-5q-MDD" secondAttribute="leading" constant="77" id="WrV-ac-iP5"/>
                             <constraint firstItem="9fN-lA-4gI" firstAttribute="top" secondItem="h2H-5q-MDD" secondAttribute="top" constant="130" id="fPi-xY-zuf"/>
                             <constraint firstItem="YwS-nm-UzG" firstAttribute="top" secondItem="Pnw-mn-bp3" secondAttribute="bottom" constant="20" id="fS2-Ag-4DJ"/>
-                            <constraint firstItem="Pnw-mn-bp3" firstAttribute="leading" secondItem="h2H-5q-MDD" secondAttribute="leading" constant="100" id="lyk-Qs-68X"/>
+                            <constraint firstItem="CtQ-RL-chP" firstAttribute="leading" secondItem="Pnw-mn-bp3" secondAttribute="trailing" constant="24" id="kdt-dz-Z2h"/>
                             <constraint firstItem="NH5-bo-guH" firstAttribute="top" secondItem="h2H-5q-MDD" secondAttribute="top" constant="200" id="nBu-Oc-7Ms"/>
                             <constraint firstItem="h2H-5q-MDD" firstAttribute="bottom" secondItem="Pnw-mn-bp3" secondAttribute="bottom" constant="380" id="o4l-s8-41b"/>
                             <constraint firstItem="c6b-l7-dp9" firstAttribute="leading" secondItem="h2H-5q-MDD" secondAttribute="leading" constant="120" id="pCx-Xi-0xj"/>
@@ -243,7 +250,6 @@
                             <constraint firstItem="iGH-gM-ClH" firstAttribute="leading" secondItem="h2H-5q-MDD" secondAttribute="leading" constant="110" id="s8A-f2-GcR"/>
                             <constraint firstItem="h2H-5q-MDD" firstAttribute="bottom" secondItem="YwS-nm-UzG" secondAttribute="bottom" constant="336" id="sth-2u-kgu"/>
                             <constraint firstItem="Pnw-mn-bp3" firstAttribute="top" secondItem="iGH-gM-ClH" secondAttribute="bottom" constant="20" id="twc-3e-wXv"/>
-                            <constraint firstItem="CtQ-RL-chP" firstAttribute="baseline" secondItem="Pnw-mn-bp3" secondAttribute="baseline" id="wuD-Ue-yOV"/>
                             <constraint firstItem="iGH-gM-ClH" firstAttribute="top" secondItem="c6b-l7-dp9" secondAttribute="bottom" constant="20" id="zB4-a6-G3O"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h2H-5q-MDD"/>
@@ -312,6 +318,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FmE-gG-wbd"/>
+        <segue reference="VQm-Kk-veD"/>
     </inferredMetricsTieBreakers>
 </document>

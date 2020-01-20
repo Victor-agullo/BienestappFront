@@ -14,38 +14,58 @@ class LoginController: UIViewController {
     @IBOutlet weak var mailEntry: UITextField!
     @IBOutlet weak var passEntry: UITextField!
     
-    let file = Bundle.main.path(forResource: "usage", ofType: "csv")
     
-    override func viewDidAppear(_ animated: Bool) {
-        if var params = UserDefaults.standard.value(forKey: "user") as? Dictionary<String, Any> {
-
-            params["csvFile"] = file
-            viewJumper(parameters: params, uri: "login", from: Any?.self)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if var data = UserDefaults.standard.dictionary(forKey: "user") {
+            let file = usagesProvider()
+            
+            data["csvFile"] = file
+            viewJumper(parameters: data, uri: "login")
         }
     }
     
-    @IBAction func senderButton(_ sender: UIButton) {
+    func usagesProvider() -> URL {
+        
+        let name = "usage.csv"
+        
+        let directory = FileManager.default.urls(for:.documentDirectory, in: .userDomainMask)
+        
+        let rute = directory.first?.appendingPathComponent(name)
+
+        return rute!
+    }
+    
+    @IBAction func registerButton(_ sender: UIButton) {
+        let file = usagesProvider()
+        
         let params = [
             "name" : nameEntry.text!,
             "email" : mailEntry.text!,
-            "password" : passEntry.text!
-        ]
+            "password" : passEntry.text!,
+            "csvFile" : file
+            ] as [String : Any]
         
-        viewJumper(parameters: params, uri: "register", from: Any?.self)
+        viewJumper(parameters: params, uri: "register")
     }
     
     @IBAction func loginButton(_ sender: UIButton) {
+        let file = usagesProvider()
         
         let params = [
         "name" : nameEntry.text!,
         "email" : mailEntry.text!,
         "password" : passEntry.text!,
         "csvFile" : file
-        ]
+            ] as [String : Any]
         
-        viewJumper(parameters: params, uri: "login", from: Any?.self)
+        viewJumper(parameters: params, uri: "login")
     }
-    func viewJumper(parameters: Any, uri: String, from: Any) {
+    
+    func viewJumper(parameters: Any, uri: String) {
+        
+        let from = Any?.self
         
         let hadConnected = HttpMessenger.post(endpoint: uri, params: parameters)
         
@@ -56,14 +76,18 @@ class LoginController: UIViewController {
             case .success:
                 
                 if uri == "login"{
+                    print("login", parameters)
                     HttpMessenger.tokenSavior(response: response)
+                    self.performSegue(withIdentifier: "Logged", sender: from)
                     
-                } else if uri == "register"{
-                    UserDefaults.standard.setValue(parameters, forKey: "user")
+                } else if uri == "register" {
+                    print("register", parameters)
+                    UserDefaults.standard.set(parameters, forKey: "user")
+                    self.performSegue(withIdentifier: "Logged", sender: from)
                 }
-                self.performSegue(withIdentifier: "Logged", sender: from)
                 
             case .failure:
+                print("fallo")
                 break
             }
         }

@@ -134,6 +134,7 @@
 				TargetAttributes = {
 					7FA84C4D23C5D152008046D7 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 0;
@@ -386,7 +387,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Eztena.Bienestapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -406,7 +407,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Eztena.Bienestapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

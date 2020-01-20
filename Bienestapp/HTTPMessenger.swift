@@ -45,7 +45,7 @@ class HTTPMessenger {
         
         let token = jsonOpener(response: response)
         
-        UserDefaults.standard.setValue(token["token"], forKey: "token")
+        UserDefaults.standard.set(token["token"], forKey: "token")
     }
     
     func jsonOpener(response: DataResponse<Any>) -> [String: Any] {

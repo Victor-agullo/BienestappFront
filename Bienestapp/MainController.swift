@@ -7,45 +7,61 @@
 //
 
 import UIKit
-class MainController:UIViewController, UICollectionViewDataSource {
+import AlamofireImage
+
+class MainController:UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    func infoGatherer() {
-        
-        HttpMessenger.get(endpoint: "times").responseJSON { response in
-            let object = HttpMessenger.jsonOpener(response: response)
-            
-            print(object)
-            
-            let itemsInSection = object.count
-            
-            print(itemsInSection)
-        }
-    }
-    
-    let nombres: [String] = ["whasa", "feisbu", "insta", "chrome", "reloj", "google"]
-    let tiempos: [String] = ["12:00", "13:00","para ya", "demasiado", "callate ya, hijo de puta", "que eres tontísimo"]
-    let imagenes: [UIImage] = [#imageLiteral(resourceName: "morty"),#imageLiteral(resourceName: "rickgreen"),#imageLiteral(resourceName: "Rick-Morty"),#imageLiteral(resourceName: "mortycry"),#imageLiteral(resourceName: "rickgreen"),#imageLiteral(resourceName: "rick-horizontal")]
+    var jsonArray: NSArray?
+    var nameArray: Array<String> = []
+    var timeArray: Array<String> = []
+    var imageURLArray: Array<String> = []
     
     @IBOutlet weak var AppCollection: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        infoGatherer()
-        AppCollection.dataSource = self
         
+        AppCollection.dataSource = self
+        AppCollection.delegate = self
+        
+        infoGatherer()
     }
-
+    
+    func infoGatherer() {
+        
+        HttpMessenger.get(endpoint: "times").responseJSON { response in
+            if let JSON = response.result.value{
+                
+                self.jsonArray = JSON as? NSArray
+                
+                for item in self.jsonArray! as! [NSDictionary]{
+                    
+                    let name = item["name"] as? String
+                    print(name!)
+                    let imageURL = item["icon"] as? String
+                    print(imageURL!)
+                    let timeToday = item["0"] as? String
+                    print(timeToday!)
+                    self.nameArray.append((name)!)
+                    self.timeArray.append((timeToday)!)
+                    self.imageURLArray.append((imageURL)!)
+                }
+                self.AppCollection.reloadData()
+            }
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imagenes.count
+        return nameArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AppCells", for: indexPath) as! AppCells
+        let url = URL(string: self.imageURLArray[indexPath.row])
         
-        cell.AppName.text = nombres[indexPath.row]
-        cell.AppTime.text = tiempos[indexPath.row]
-        cell.AppIcon.image = imagenes[indexPath.row]
+        cell.AppName.text = nameArray[indexPath.row]
+        cell.AppTime.text = timeArray[indexPath.row]
+        cell.AppIcon.af_setImage(withURL: url!)
         
         return cell
     }
