@@ -73,12 +73,10 @@ class LoginController: UIViewController {
             case .success:
                 
                 if uri == "login"{
-                    print("login", parameters)
                     HttpMessenger.tokenSavior(response: response)
                     self.performSegue(withIdentifier: "Logged", sender: from)
                     
                 } else if uri == "register" {
-                    print("register", parameters)
                     UserDefaults.standard.set(parameters, forKey: "user")
                     self.performSegue(withIdentifier: "Logged", sender: from)
                 }

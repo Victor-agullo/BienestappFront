@@ -31,21 +31,23 @@ class MainController:UIViewController, UICollectionViewDataSource, UICollectionV
         let get = HttpMessenger.get(endpoint: "times")
         
             get.responseJSON { response in
-            if let JSON = response.result.value{
+                
+            if let JSON = response.result.value {
                 
                 self.jsonArray = JSON as? NSArray
-                print(JSON)
-                for item in self.jsonArray! as! [NSDictionary]{
+                
+                for item in self.jsonArray! as! [NSDictionary] {
                     
-                    let name = item["name"] as? String
-                    print(name!)
-                    let imageURL = item["icon"] as? String
-                    print(imageURL!)
-                    let timeToday = item["0"] as? String
-                    print(timeToday!)
-                    self.nameArray.append((name)!)
-                    self.timeArray.append((timeToday)!)
-                    self.imageURLArray.append((imageURL)!)
+                    let name = item["name"] as! String
+                    let imageURL = item["icon"] as! String
+                    
+                    var timesOrdered = item.keysSortedByValue(using: #selector(NSNumber.compare(_:)))
+                    let timeToday = timesOrdered[1] as! String
+                    let time = item[timeToday] as! String
+                    
+                    self.nameArray.append(name)
+                    self.timeArray.append(time)
+                    self.imageURLArray.append(imageURL)
                 }
                 self.AppCollection.reloadData()
             }
