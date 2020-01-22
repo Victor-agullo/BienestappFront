@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rf3-v7-e6o">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rf3-v7-e6o">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="-967" y="-305"/>
         </scene>
-        <!--Item 2-->
+        <!--Profile-->
         <scene sceneID="mGp-Bo-Chi">
             <objects>
                 <viewController id="1vt-jJ-7fJ" sceneMemberID="viewController">
@@ -37,49 +37,151 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Qhr-9Z-P3y"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="MUL-Xm-fLq"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="contact_card" id="MUL-Xm-fLq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MXF-71-oZz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1848" y="210"/>
+            <point key="canvasLocation" x="687" y="398"/>
         </scene>
-        <!--Item 1-->
+        <!--Restrictions-->
         <scene sceneID="IvM-Id-7rm">
             <objects>
                 <viewController id="wSb-3C-g5S" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cd7-vL-AsQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" fixedFrame="YES" indicatorStyle="white" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gT5-qH-Mba" userLabel="AppCollection">
+                                <rect key="frame" x="7" y="0.0" width="400" height="538"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ThI-RR-Hgr">
+                                    <size key="itemSize" width="175" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="AppCells" id="tBt-o9-y7H" userLabel="AppCells" customClass="AppCells" customModule="Bienestapp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="175" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="175" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SEC-1c-Dhq" userLabel="AppIcon">
+                                                    <rect key="frame" x="62" y="20" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7FF-l0-nyk">
+                                                    <rect key="frame" x="12" y="71" width="151" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="20"/>
+                                                    <color key="textColor" red="0.59999999999999998" green="0.20000000000000001" blue="0.031372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="highlightedColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="-1" height="-1"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4y-u5-ZN7">
+                                                    <rect key="frame" x="90" y="0.0" width="85" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBoldItalic" family="Avenir Next" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <size key="shadowOffset" width="0.0" height="1"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="AppIcon" destination="SEC-1c-Dhq" id="i1N-Ci-SZb"/>
+                                            <outlet property="AppName" destination="7FF-l0-nyk" id="HUo-S6-0AD"/>
+                                            <outlet property="AppTime" destination="i4y-u5-ZN7" id="Ins-KH-31b"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" translatesAutoresizingMaskIntoConstraints="NO" id="K5e-9O-cUL">
+                                <rect key="frame" x="7" y="586" width="156" height="131"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <date key="date" timeIntervalSinceReferenceDate="601389524.19905603">
+                                    <!--2020-01-22 12:38:44 +0000-->
+                                </date>
+                                <locale key="locale" localeIdentifier="es"/>
+                            </datePicker>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" translatesAutoresizingMaskIntoConstraints="NO" id="Idv-Ah-vCU">
+                                <rect key="frame" x="213" y="675" width="181" height="42"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <date key="date" timeIntervalSinceReferenceDate="601389524.19905603">
+                                    <!--2020-01-22 12:38:44 +0000-->
+                                </date>
+                                <locale key="locale" localeIdentifier="es"/>
+                            </datePicker>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" translatesAutoresizingMaskIntoConstraints="NO" id="QP3-yh-ydK">
+                                <rect key="frame" x="213" y="586" width="181" height="40"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <date key="date" timeIntervalSinceReferenceDate="601389524.19905603">
+                                    <!--2020-01-22 12:38:44 +0000-->
+                                </date>
+                                <locale key="locale" localeIdentifier="es"/>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="DtJ-5b-W8D"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="jZ3-Kx-MMC"/>
+                    <tabBarItem key="tabBarItem" title="Restrictions" image="alarm_clock" id="jZ3-Kx-MMC">
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FLF-fu-MXJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1848" y="-595"/>
+            <point key="canvasLocation" x="686.95652173913049" y="-997.09821428571422"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="iwq-fo-k09">
+            <objects>
+                <viewController id="FN6-vu-Lx7" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jDU-JZ-FNo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="QnQ-rk-tSZ"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" image="map_marker" id="xSJ-Bq-CGc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tNo-TE-hIY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1387" y="-997"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ZsD-WT-lf6">
             <objects>
                 <tabBarController id="AJ7-uw-Wby" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="eTg-k7-zmP"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zcc-KP-Sxu">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="zcc-KP-Sxu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.7843137255" green="0.7843137255" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.37647058823529411" green="0.10588235294117647" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="cGi-BS-Wgd" kind="relationship" relationship="viewControllers" id="Sis-HY-LZD"/>
                         <segue destination="wSb-3C-g5S" kind="relationship" relationship="viewControllers" id="CO2-Er-veV"/>
                         <segue destination="1vt-jJ-7fJ" kind="relationship" relationship="viewControllers" id="da1-FQ-1O0"/>
+                        <segue destination="FN6-vu-Lx7" kind="relationship" relationship="viewControllers" id="5Xz-Z0-3dx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8aH-Zu-eKE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-243" y="-305"/>
         </scene>
-        <!--Item-->
+        <!--Apps-->
         <scene sceneID="BSG-ad-IOL">
             <objects>
                 <viewController id="cGi-BS-Wgd" customClass="MainController" customModule="Bienestapp" sceneMemberID="viewController">
@@ -111,15 +213,17 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhX-xa-g0z">
                                                     <rect key="frame" x="12" y="71" width="151" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                    <color key="textColor" red="1" green="0.27855552680000001" blue="0.1966188791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="20"/>
+                                                    <color key="textColor" red="0.59999999999999998" green="0.20000000000000001" blue="0.031372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="highlightedColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="-1" height="-1"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwd-Tt-3sg">
                                                     <rect key="frame" x="90" y="0.0" width="85" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBoldItalic" family="Avenir Next" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -146,7 +250,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lkk-8a-r8l"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="7i9-BE-kYS"/>
+                    <tabBarItem key="tabBarItem" title="Apps" image="wallet_app" id="7i9-BE-kYS"/>
                     <navigationItem key="navigationItem" id="sNX-n5-zIA"/>
                     <connections>
                         <outlet property="AppCollection" destination="ArJ-jh-Ae6" id="mk5-ik-o6q"/>
@@ -258,4 +362,10 @@
             <point key="canvasLocation" x="-1649.2753623188407" y="-305.35714285714283"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="alarm_clock" width="30" height="30"/>
+        <image name="contact_card" width="30" height="30"/>
+        <image name="map_marker" width="30" height="30"/>
+        <image name="wallet_app" width="30" height="30"/>
+    </resources>
 </document>
