@@ -9,7 +9,7 @@
 import UIKit
 
 var nameArray: Array<String> = []
-var timeArray: Array<String> = []
+var optionsArray: Array<String> = []
 var imageURLArray: Array<String> = []
 
 class serverRetriever: UIViewController {
@@ -31,13 +31,10 @@ class serverRetriever: UIViewController {
                     
                     let name = item["name"] as! String
                     let imageURL = item["icon"] as! String
-                    
-                    var timesOrdered = item.keysSortedByValue(using: #selector(NSNumber.compare(_:)))
-                    let timeToday = timesOrdered[1] as! String
-                    let time = item[timeToday] as! String
+                    let options = item["options"] as! String
                     
                     nameArray.append(name)
-                    timeArray.append(time)
+                    optionsArray.append(options)
                     imageURLArray.append(imageURL)
                 }
                 thisCollectionView.reloadData()
