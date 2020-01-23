@@ -10,6 +10,6 @@ import UIKit
 
 class restrictCells: UICollectionViewCell {
     
-    @IBOutlet weak var restrictedIcon: UIImageView!
-    @IBOutlet weak var restrictedName: UILabel!
+    @IBOutlet weak var restrict_image: UIImageView!
+    @IBOutlet weak var restrict_name: UILabel!
 }

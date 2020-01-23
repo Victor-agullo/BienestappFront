@@ -14,6 +14,8 @@ class LoginController: UIViewController {
     @IBOutlet weak var mailEntry: UITextField!
     @IBOutlet weak var passEntry: UITextField!
     
+    var HttpMessenger = HTTPMessenger()
+
     override func viewDidAppear(_ animated: Bool) {
         
         if var data = UserDefaults.standard.dictionary(forKey: "user") {
@@ -73,7 +75,7 @@ class LoginController: UIViewController {
             case .success:
                 
                 if uri == "login"{
-                    HttpMessenger.tokenSavior(response: response)
+                    self.HttpMessenger.tokenSavior(response: response)
                     self.performSegue(withIdentifier: "Logged", sender: from)
                     
                 } else if uri == "register" {

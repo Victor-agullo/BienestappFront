@@ -7,20 +7,19 @@
 //
 
 import UIKit
-import AlamofireImage
 
-var retriever = serverRetriever()
+var nameArray: Array<String> = []
+var timeArray: Array<String> = []
+var imageURLArray: Array<String> = []
 
-class serverRetriever {
+class serverRetriever: UIViewController {
     
     var jsonArray: NSArray?
-    var nameArray: Array<String> = []
-    var timeArray: Array<String> = []
-    var imageURLArray: Array<String> = []
-    
+    var HttpMessenger = HTTPMessenger()
+
     func infoGatherer(thisCollectionView: UICollectionView) {
         
-        let get = HttpMessenger.get(endpoint: "times")
+        let get = self.HttpMessenger.get(endpoint: "times")
         
         get.responseJSON { response in
             
@@ -37,16 +36,12 @@ class serverRetriever {
                     let timeToday = timesOrdered[1] as! String
                     let time = item[timeToday] as! String
                     
-                    self.nameArray.append(name)
-                    self.timeArray.append(time)
-                    self.imageURLArray.append(imageURL)
+                    nameArray.append(name)
+                    timeArray.append(time)
+                    imageURLArray.append(imageURL)
                 }
-                
                 thisCollectionView.reloadData()
-                print(self.nameArray)
             }
-            print(self.nameArray)
         }
-        print(self.nameArray)
     }
 }

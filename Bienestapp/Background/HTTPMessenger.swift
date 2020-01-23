@@ -9,8 +9,6 @@
 import UIKit
 import Alamofire
 
-var HttpMessenger = HTTPMessenger()
-
 class HTTPMessenger {
 
     func urlModder(direction: String) -> URL {

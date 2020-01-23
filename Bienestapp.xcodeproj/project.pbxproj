@@ -118,8 +118,8 @@
 				7FA84C5823C5D154008046D7 /* Assets.xcassets */,
 				7F1DEDF723CDDB90008B79EB /* HTTPMessenger.swift */,
 				7FA84C5123C5D152008046D7 /* AppDelegate.swift */,
-				7F61866623CC781300F369E9 /* Settings.bundle */,
 				B9C3766923D8F0D1000C5236 /* serverRetriever.swift */,
+				7F61866623CC781300F369E9 /* Settings.bundle */,
 			);
 			path = Background;
 			sourceTree = "<group>";
