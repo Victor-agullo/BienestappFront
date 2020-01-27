@@ -19,11 +19,23 @@ class HTTPMessenger {
         return url
     }
     
-    func post(endpoint: String, params: Any) -> DataRequest{
+    func logPost(endpoint: String, params: Any) -> DataRequest{
         
         let url = urlModder(direction: endpoint)
         
         let post = Alamofire.request(url, method: .post, parameters: params as? Parameters)
+        
+        return post
+    }
+    
+    func headPost(endpoint: String, params: Any) -> DataRequest{
+        let url = urlModder(direction: endpoint)
+        
+        let token = [
+            "token" : UserDefaults.standard.value(forKey: "token")!
+            ]as! [String:String]
+        
+        let post = Alamofire.request(url, method: .post, parameters: params as? Parameters, headers: token)
         
         return post
     }

@@ -39,12 +39,7 @@ class LoginController: UIViewController {
     @IBAction func registerButton(_ sender: UIButton) {
         let file = usagesProvider()
         
-        let params = [
-            "name" : nameEntry.text!,
-            "email" : mailEntry.text!,
-            "password" : passEntry.text!,
-            "csvFile" : file
-            ] as [String : Any]
+        let params = getParams(file: file)
         
         viewJumper(parameters: params, uri: "register")
     }
@@ -52,21 +47,28 @@ class LoginController: UIViewController {
     @IBAction func loginButton(_ sender: UIButton) {
         let file = usagesProvider()
         
-        let params = [
-        "name" : nameEntry.text!,
-        "email" : mailEntry.text!,
-        "password" : passEntry.text!,
-        "csvFile" : file
-            ] as [String : Any]
+        let params = getParams(file: file)
         
         viewJumper(parameters: params, uri: "login")
+    }
+    
+    func getParams(file: URL) -> Dictionary<String, Any> {
+        
+        let params = [
+            "name" : nameEntry.text!,
+            "email" : mailEntry.text!,
+            "password" : passEntry.text!,
+            "csvFile" : file
+            ] as [String : Any]
+        
+        return params
     }
     
     func viewJumper(parameters: Any, uri: String) {
         
         let from = Any?.self
         
-        let hadConnected = HttpMessenger.post(endpoint: uri, params: parameters)
+        let hadConnected = HttpMessenger.logPost(endpoint: uri, params: parameters)
         
         hadConnected.responseJSON { response in
             
@@ -96,6 +98,6 @@ class LoginController: UIViewController {
             "email" : mailEntry.text!,
         ]
         
-        let _ = HttpMessenger.post(endpoint: "forgot", params: params)
+        let _ = HttpMessenger.logPost(endpoint: "forgot", params: params)
     }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7F30EB4F23CDD1350044D9A6 /* AppCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30EB4E23CDD1350044D9A6 /* AppCells.swift */; };
 		7F61866723CC781300F369E9 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7F61866623CC781300F369E9 /* Settings.bundle */; };
+		7FA2BA9723DF1150007936BE /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA2BA9623DF1150007936BE /* MapController.swift */; };
 		7FA84C5223C5D152008046D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA84C5123C5D152008046D7 /* AppDelegate.swift */; };
 		7FA84C5423C5D152008046D7 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA84C5323C5D152008046D7 /* LoginController.swift */; };
 		7FA84C5723C5D152008046D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA84C5523C5D152008046D7 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		34F8253464547E97A696A343 /* Pods-Bienestapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bienestapp.release.xcconfig"; path = "Target Support Files/Pods-Bienestapp/Pods-Bienestapp.release.xcconfig"; sourceTree = "<group>"; };
 		7F30EB4E23CDD1350044D9A6 /* AppCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCells.swift; sourceTree = "<group>"; };
 		7F61866623CC781300F369E9 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		7FA2BA9623DF1150007936BE /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		7FA84C4E23C5D152008046D7 /* Bienestapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bienestapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA84C5123C5D152008046D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FA84C5323C5D152008046D7 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,21 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		7FA2BA9423DF0FC7007936BE /* Map */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		7FA2BA9523DF0FD4007936BE /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7FA2BA9623DF1150007936BE /* MapController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		7FA84C4523C5D152008046D7 = {
 			isa = PBXGroup;
 			children = (
@@ -85,8 +102,10 @@
 			isa = PBXGroup;
 			children = (
 				B9C3766223D8E937000C5236 /* Login */,
-				B9C3766123D8E921000C5236 /* aMain */,
+				B9C3766123D8E921000C5236 /* Stats */,
 				B9C3766623D8EC8D000C5236 /* Restriction */,
+				7FA2BA9523DF0FD4007936BE /* Profile */,
+				7FA2BA9423DF0FC7007936BE /* Map */,
 				7FA84C5523C5D152008046D7 /* Main.storyboard */,
 				7FA84C5A23C5D154008046D7 /* LaunchScreen.storyboard */,
 				B9C3766323D8EC0F000C5236 /* Background */,
@@ -95,13 +114,13 @@
 			path = Bienestapp;
 			sourceTree = "<group>";
 		};
-		B9C3766123D8E921000C5236 /* aMain */ = {
+		B9C3766123D8E921000C5236 /* Stats */ = {
 			isa = PBXGroup;
 			children = (
 				7FE31DD223C7464500EF5530 /* MainController.swift */,
 				7F30EB4E23CDD1350044D9A6 /* AppCells.swift */,
 			);
-			path = aMain;
+			path = Stats;
 			sourceTree = "<group>";
 		};
 		B9C3766223D8E937000C5236 /* Login */ = {
@@ -270,6 +289,7 @@
 				7FE31DD323C7464500EF5530 /* MainController.swift in Sources */,
 				7F30EB4F23CDD1350044D9A6 /* AppCells.swift in Sources */,
 				7FA84C5223C5D152008046D7 /* AppDelegate.swift in Sources */,
+				7FA2BA9723DF1150007936BE /* MapController.swift in Sources */,
 				B97491AF23DDC03D009F6D3D /* HTTPMessenger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

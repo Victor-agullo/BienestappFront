@@ -46,31 +46,51 @@ class RestrictionController: UIViewController, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "restrictCells", for: indexPath) as! restrictCells
-            if cell.isSelected {
-                let cosa = cell.accessibilityValue!
-                print(cosa)
-        }
+        
+        cell.restrict_name.text = nameArray[indexPath.row]
+        
+        cellName = cell.restrict_name.text!
     }
     
-    @IBAction func timePicker(_ sender: UIDatePicker) {
-    }
+    @IBAction func timePicker(_ sender: UIDatePicker) {}
     
-    @IBAction func start_Time(_ sender: UIDatePicker) {
-    }
+    @IBAction func start_Time(_ sender: UIDatePicker) {}
     
-    @IBAction func end_time(_ sender: UIDatePicker) {
-    }
+    @IBAction func end_time(_ sender: UIDatePicker) {}
     
-    
-    @IBAction func time_sender(_ sender: UIButton) {
+    func timeSetter() -> Dictionary<String, Any> {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ss"
+        
+        let max_time = dateFormatter.string(from: self.maxTime.date).numberOfSeconds()
+        let start_at = dateFormatter.string(from: self.startTime.date).numberOfSeconds()
+        let finish_at = dateFormatter.string(from: self.endTime.date).numberOfSeconds()
+        
         let params = [
-            "max_time" : self.maxTime,
-            "start_at" : self.startTime,
-            "finish_at" : self.endTime,
-            "appName" : cellName
+            "appName" : cellName,
+            "max_time" : max_time,
+            "start_at" : start_at,
+            "finish_at" : finish_at,
             ] as [String : Any]
         
-        print(cellName)
-        let _ = HttpMessenger.post(endpoint: "restricts", params: params)
+        return params
+    }
+    
+    @IBAction func time_sender(_ sender: UIButton) {
+        let params = timeSetter()
+        
+        print(params)
+        let _ = HttpMessenger.headPost(endpoint: "restricts", params: params)
+    }
+}
+
+extension String {
+    func numberOfSeconds() -> Int {
+        var components: Array = self.components(separatedBy: ":")
+        let hours = Int(components[0]) ?? 0
+        let minutes = Int(components[1]) ?? 0
+        let seconds = Int(components[2]) ?? 0
+        return (hours * 3600) + (minutes * 60) + seconds
     }
 }
