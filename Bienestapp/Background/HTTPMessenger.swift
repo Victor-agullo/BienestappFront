@@ -12,6 +12,7 @@ import Alamofire
 class HTTPMessenger {
 
     func urlModder(direction: String) -> URL {
+        
         let urlString = "http://localhost:8888/bienestapp/public/index.php/api/"
 
         let url = URL(string: urlString+direction)!

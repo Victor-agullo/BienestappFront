@@ -17,5 +17,8 @@ class MapController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    func map(<#parameters#>) -> <#return type#> {
+        <#function body#>
+    }
     
 }
