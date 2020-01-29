@@ -12,14 +12,14 @@ var nameArray: Array<String> = []
 var timeArray: Array<String> = []
 var imageURLArray: Array<String> = []
 
-class serverRetriever: UIViewController {
+class serverRetriever {
     
     var jsonArray: NSArray?
     var HttpMessenger = HTTPMessenger()
     
-    func infoGatherer(thisCollectionView: UICollectionView) {
+    func infoGatherer(thisCollectionView: UICollectionView, route: String) {
         
-        let get = self.HttpMessenger.get(endpoint: "times")
+        let get = self.HttpMessenger.get(endpoint: route)
         
         get.responseJSON { response in
             
@@ -28,7 +28,7 @@ class serverRetriever: UIViewController {
                 self.jsonArray = JSON as? NSArray
                 
                 for item in self.jsonArray! as! [NSDictionary] {
-                    
+                    print(self.jsonArray!)
                     let name = item["name"] as! String
                     let imageURL = item["icon"] as! String
                     

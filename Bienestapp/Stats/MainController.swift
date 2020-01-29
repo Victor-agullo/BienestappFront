@@ -18,7 +18,7 @@ class MainController:UIViewController, UICollectionViewDataSource, UICollectionV
         
         AppCollection.dataSource = self
         AppCollection.delegate = self
-        serverRetriever.init().infoGatherer(thisCollectionView: AppCollection)
+        serverRetriever.init().infoGatherer(thisCollectionView: AppCollection, route: "times")
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

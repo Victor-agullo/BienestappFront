@@ -248,7 +248,7 @@
         <!--Map-->
         <scene sceneID="iwq-fo-k09">
             <objects>
-                <viewController id="FN6-vu-Lx7" sceneMemberID="viewController">
+                <viewController id="FN6-vu-Lx7" customClass="MapController" customModule="Bienestapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jDU-JZ-FNo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -267,6 +267,9 @@
                         <viewLayoutGuide key="safeArea" id="QnQ-rk-tSZ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map_marker" id="xSJ-Bq-CGc"/>
+                    <connections>
+                        <outlet property="map" destination="n7L-11-QjV" id="BlW-WF-1PR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tNo-TE-hIY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
