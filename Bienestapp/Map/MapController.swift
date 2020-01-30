@@ -10,11 +10,12 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class MapController: UIViewController, CLLocationManagerDelegate {
     
     var HttpMessenger = HTTPMessenger()
     @IBOutlet weak var map: MKMapView!
     let manager = CLLocationManager()
+    var currentCoordinate: CLLocationCoordinate2D?
     
     var locationArray: NSArray?
     var latitudeArray: Array<String> = []
@@ -24,9 +25,29 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
         super.viewDidLoad()
         getPlaces()
         
-        manager.delegate = self
-        manager.requestWhenInUseAuthorization()
-        map.delegate = self
+        if CLLocationManager.locationServicesEnabled() {
+            manager.delegate = self
+            manager.requestWhenInUseAuthorization()
+            manager.desiredAccuracy = kCLLocationAccuracyBest
+            manager.distanceFilter = kCLDistanceFilterNone
+            manager.startUpdatingLocation()
+        }
+        
+        map.showsUserLocation = true
+        map.showsCompass = true
+        map.showsScale = true
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        
+        let currentLocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
+        
+        let regionRadius: CLLocationDistance = 4000.0
+        
+        let region = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+        
+        map.setRegion(region, animated: true)
     }
     
     func getPlaces() {
@@ -35,46 +56,42 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
         locations.responseJSON { response in
             
             if let JSON = response.result.value {
-                
                 self.locationArray = JSON as? NSArray
-                print(self.locationArray!)
+                
                 for item in self.locationArray! as! [NSDictionary] {
                     
                     let latitude = item["latitude"] as! String
-                    print(latitude)
+                    
                     let longitude = item["longitude"] as! String
-                    print(longitude)
+                    
                     self.latitudeArray.append(latitude)
                     self.longitudeArray.append(longitude)
                 }
+                self.createAnnotations()
             }
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        manager.startUpdatingLocation()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        pin(localizacion: locations.first!)
-    }
-    
-    func pin(localizacion: CLLocation) {
-        for i in 1..<longitudeArray.count {
+    func createAnnotations() {
+        var locations = 0
+        let latitudes = latitudeArray.count
+        let longitudes = longitudeArray.count
+        
+        if latitudes == longitudes {
+            locations = latitudes - 1
+        }
+        
+        for locations in 0...locations {
+            let annotation = MKPointAnnotation()
             
-            let span = MKCoordinateSpan(latitudeDelta:Double(latitudeArray[i])!, longitudeDelta: Double(longitudeArray[i])!)
+            annotation.title = nameArray[locations]
+            annotation.subtitle = timeArray[locations]
             
-            let region = MKCoordinateRegion(center: localizacion.coordinate, span: span)
+            annotation.coordinate = CLLocationCoordinate2D(
+                latitude: CLLocationDegrees(latitudeArray[locations])!,
+                longitude: CLLocationDegrees(longitudeArray[locations])!)
             
-            map.setRegion(region, animated: true)
-            
-            let anotacion = MKPointAnnotation()
-            anotacion.coordinate = localizacion.coordinate
-            anotacion.title = nameArray[i]
-            
-            anotacion.subtitle = timeArray[i]
-            
-            map.addAnnotation(anotacion)
+            self.map.addAnnotation(annotation)
         }
     }
     

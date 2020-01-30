@@ -28,7 +28,7 @@ class serverRetriever {
                 self.jsonArray = JSON as? NSArray
                 
                 for item in self.jsonArray! as! [NSDictionary] {
-                    print(self.jsonArray!)
+                    
                     let name = item["name"] as! String
                     let imageURL = item["icon"] as! String
                     

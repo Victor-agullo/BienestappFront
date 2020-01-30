@@ -13,6 +13,8 @@ class MainController:UIViewController, UICollectionViewDataSource, UICollectionV
     
     @IBOutlet weak var AppCollection: UICollectionView!
     
+    var row = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,5 +36,11 @@ class MainController:UIViewController, UICollectionViewDataSource, UICollectionV
         cell.AppIcon.af_setImage(withURL: url!)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.row = indexPath.row
+        performSegue(withIdentifier: "Detailing", sender: Any?.self)
     }
 }
