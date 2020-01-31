@@ -20,23 +20,23 @@ class HTTPMessenger {
         return url
     }
     
-    func logPost(endpoint: String, params: Any) -> DataRequest{
+    func logPost(endpoint: String, params: Dictionary<String, Any>) -> DataRequest{
         
         let url = urlModder(direction: endpoint)
         
-        let post = Alamofire.request(url, method: .post, parameters: params as? Parameters)
+        let post = Alamofire.request(url, method: .post, parameters: params)
         
         return post
     }
     
-    func headPost(endpoint: String, params: Any) -> DataRequest{
+    func headPost(endpoint: String, params: Dictionary<String, Any>) -> DataRequest{
         let url = urlModder(direction: endpoint)
         
         let token = [
             "token" : UserDefaults.standard.value(forKey: "token")!
             ]as! [String:String]
         
-        let post = Alamofire.request(url, method: .post, parameters: params as? Parameters, headers: token)
+        let post = Alamofire.request(url, method: .post, parameters: params, headers: token)
         
         return post
     }
@@ -58,7 +58,7 @@ class HTTPMessenger {
         
         let token = jsonOpener(response: response)
         
-        UserDefaults.standard.set(token["token"], forKey: "token")
+        UserDefaults.standard.setValue(token["token"], forKey: "token")
     }
     
     func jsonOpener(response: DataResponse<Any>) -> [String: Any] {

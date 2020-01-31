@@ -114,7 +114,6 @@
 				B9C3766623D8EC8D000C5236 /* Restriction */,
 				7FA2BA9523DF0FD4007936BE /* Profile */,
 				7FA2BA9423DF0FC7007936BE /* Map */,
-				7FCE58DC23E30542001F7998 /* DetailTimes */,
 				7FA84C5523C5D152008046D7 /* Main.storyboard */,
 				7FA84C5A23C5D154008046D7 /* LaunchScreen.storyboard */,
 				7FA84C5823C5D154008046D7 /* Assets.xcassets */,
@@ -135,6 +134,7 @@
 		B9C3766123D8E921000C5236 /* Stats */ = {
 			isa = PBXGroup;
 			children = (
+				7FCE58DC23E30542001F7998 /* DetailTimes */,
 				7FE31DD223C7464500EF5530 /* MainController.swift */,
 				7F30EB4E23CDD1350044D9A6 /* AppCells.swift */,
 			);

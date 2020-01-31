@@ -64,8 +64,8 @@ class LoginController: UIViewController {
         return params
     }
     
-    func viewJumper(parameters: Any, uri: String) {
-        
+    func viewJumper(parameters: Dictionary<String, Any>, uri: String) {
+        var params = parameters
         let from = Any?.self
         
         let hadConnected = HttpMessenger.logPost(endpoint: uri, params: parameters)
@@ -81,7 +81,8 @@ class LoginController: UIViewController {
                     self.performSegue(withIdentifier: "Logged", sender: from)
                     
                 } else if uri == "register" {
-                    UserDefaults.standard.set(parameters, forKey: "user")
+                    params.removeValue(forKey: "csvFile")
+                    UserDefaults.standard.set(params, forKey: "user")
                     self.performSegue(withIdentifier: "Logged", sender: from)
                 }
                 

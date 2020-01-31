@@ -9,11 +9,11 @@
 import UIKit
 import AlamofireImage
 
+var row = 0
 class MainController:UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var AppCollection: UICollectionView!
     
-    var row = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,7 @@ class MainController:UIViewController, UICollectionViewDataSource, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        self.row = indexPath.row
+        row = indexPath.row
         performSegue(withIdentifier: "Detailing", sender: Any?.self)
     }
 }
