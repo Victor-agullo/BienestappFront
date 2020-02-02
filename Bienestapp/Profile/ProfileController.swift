@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ProfileController: UIViewController {
-
+    
     @IBOutlet weak var notifications: UIButton!
     @IBOutlet weak var messages: UIButton!
+    
     var pressed = true
     var reversed = true
     
@@ -21,15 +23,17 @@ class ProfileController: UIViewController {
     }
     
     @IBAction func notificationsButt(_ sender: UIButton) {
-        if pressed {
+        if self.pressed {
             notifications.setTitleColor(UIColor.purple, for: UIControl.State.normal)
+
         } else {
             notifications.setTitleColor(UIColor.black, for: UIControl.State.normal)
         }
-        pressed.toggle()
+        self.pressed.toggle()
     }
     
     @IBAction func messagesAllowance(_ sender: UIButton) {
+        
         if reversed {
             messages.setTitleColor(UIColor.purple, for: UIControl.State.normal)
         } else {

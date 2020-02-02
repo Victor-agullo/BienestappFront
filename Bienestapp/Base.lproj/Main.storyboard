@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -490,15 +489,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Xm-dl-RGp" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="189" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Xm-dl-RGp" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="148" width="414" height="365"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9Xm-dl-RGp" firstAttribute="top" secondItem="p2k-ra-8tK" secondAttribute="top" constant="60" id="4gT-IN-Xme"/>
+                            <constraint firstItem="9Xm-dl-RGp" firstAttribute="leading" secondItem="p2k-ra-8tK" secondAttribute="leading" id="IAc-hE-khZ"/>
+                            <constraint firstItem="p2k-ra-8tK" firstAttribute="trailing" secondItem="9Xm-dl-RGp" secondAttribute="trailing" id="RfP-Ji-180"/>
+                            <constraint firstItem="p2k-ra-8tK" firstAttribute="bottom" secondItem="9Xm-dl-RGp" secondAttribute="bottom" constant="300" id="xQY-jj-BBd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="p2k-ra-8tK"/>
                     </view>
+                    <connections>
+                        <outlet property="pieChart" destination="9Xm-dl-RGp" id="LBW-vt-iNM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vl2-i8-tjH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

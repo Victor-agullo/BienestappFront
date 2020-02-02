@@ -9,11 +9,15 @@
 import UIKit
 import AlamofireImage
 
+var timeKeys: Array<String> = []
+var timeValues: Array<String> = []
+
 class TimeDetailApp: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var imageApp: UIImageView!
     @IBOutlet weak var nameApp: UILabel!
     @IBOutlet weak var timeCollection: UICollectionView!
+    
     var appTimes:[Dictionary<String, String>]?
     
     override func viewDidLoad() {
@@ -47,9 +51,6 @@ class TimeDetailApp: UIViewController, UICollectionViewDataSource, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCells", for: indexPath) as! timeCells
-        
-        var timeKeys: Array<String> = []
-        var timeValues: Array<String> = []
         
         for item in appTimes!{
             
