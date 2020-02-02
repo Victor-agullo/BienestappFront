@@ -14,7 +14,6 @@ class MainController:UIViewController, UICollectionViewDataSource, UICollectionV
     
     @IBOutlet weak var AppCollection: UICollectionView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

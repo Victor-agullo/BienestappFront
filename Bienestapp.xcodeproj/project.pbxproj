@@ -23,6 +23,8 @@
 		B97491AF23DDC03D009F6D3D /* HTTPMessenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97491AE23DDC03D009F6D3D /* HTTPMessenger.swift */; };
 		B9C3766023D8CD90000C5236 /* RestrictionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C3765F23D8CD90000C5236 /* RestrictionsController.swift */; };
 		B9C3766823D8EF83000C5236 /* restrictCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C3766723D8EF83000C5236 /* restrictCells.swift */; };
+		B9E6592623E580F000889C63 /* timeCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E6592523E580F000889C63 /* timeCells.swift */; };
+		B9E6592923E6F43200889C63 /* GraphicsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E6592823E6F43200889C63 /* GraphicsController.swift */; };
 		D512BDB5F148C01452E21521 /* Pods_Bienestapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BE0FB3536499F46AA629B3 /* Pods_Bienestapp.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +50,8 @@
 		B9C3765F23D8CD90000C5236 /* RestrictionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrictionsController.swift; sourceTree = "<group>"; };
 		B9C3766423D8EC3E000C5236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9C3766723D8EF83000C5236 /* restrictCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = restrictCells.swift; sourceTree = "<group>"; };
+		B9E6592523E580F000889C63 /* timeCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeCells.swift; sourceTree = "<group>"; };
+		B9E6592823E6F43200889C63 /* GraphicsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +113,10 @@
 		7FA84C5023C5D152008046D7 /* Bienestapp */ = {
 			isa = PBXGroup;
 			children = (
+				B9E6592723E6F11D00889C63 /* Graphs */,
 				B9C3766223D8E937000C5236 /* Login */,
 				B9C3766123D8E921000C5236 /* Stats */,
+				7FCE58DC23E30542001F7998 /* DetailTimes */,
 				B9C3766623D8EC8D000C5236 /* Restriction */,
 				7FA2BA9523DF0FD4007936BE /* Profile */,
 				7FA2BA9423DF0FC7007936BE /* Map */,
@@ -127,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				7FCE58DD23E30686001F7998 /* TimeDetailApp.swift */,
+				B9E6592523E580F000889C63 /* timeCells.swift */,
 			);
 			path = DetailTimes;
 			sourceTree = "<group>";
@@ -134,7 +141,6 @@
 		B9C3766123D8E921000C5236 /* Stats */ = {
 			isa = PBXGroup;
 			children = (
-				7FCE58DC23E30542001F7998 /* DetailTimes */,
 				7FE31DD223C7464500EF5530 /* MainController.swift */,
 				7F30EB4E23CDD1350044D9A6 /* AppCells.swift */,
 			);
@@ -152,8 +158,8 @@
 		B9C3766323D8EC0F000C5236 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				B97491AE23DDC03D009F6D3D /* HTTPMessenger.swift */,
 				7FA84C5123C5D152008046D7 /* AppDelegate.swift */,
+				B97491AE23DDC03D009F6D3D /* HTTPMessenger.swift */,
 				B97491AA23DDBFB6009F6D3D /* serverRetriever.swift */,
 				7F61866623CC781300F369E9 /* Settings.bundle */,
 			);
@@ -167,6 +173,14 @@
 				B9C3766723D8EF83000C5236 /* restrictCells.swift */,
 			);
 			path = Restriction;
+			sourceTree = "<group>";
+		};
+		B9E6592723E6F11D00889C63 /* Graphs */ = {
+			isa = PBXGroup;
+			children = (
+				B9E6592823E6F43200889C63 /* GraphicsController.swift */,
+			);
+			path = Graphs;
 			sourceTree = "<group>";
 		};
 		E2C853EEEB56B0A4F2B171E6 /* Frameworks */ = {
@@ -299,9 +313,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9E6592623E580F000889C63 /* timeCells.swift in Sources */,
 				B9C3766023D8CD90000C5236 /* RestrictionsController.swift in Sources */,
 				B9C3766823D8EF83000C5236 /* restrictCells.swift in Sources */,
 				B97491AB23DDBFB7009F6D3D /* serverRetriever.swift in Sources */,
+				B9E6592923E6F43200889C63 /* GraphicsController.swift in Sources */,
 				7FA84C5423C5D152008046D7 /* LoginController.swift in Sources */,
 				7FE31DD323C7464500EF5530 /* MainController.swift in Sources */,
 				7FCE58DE23E30686001F7998 /* TimeDetailApp.swift in Sources */,
