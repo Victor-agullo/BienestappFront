@@ -22,10 +22,10 @@ class TimeDetailApp: UIViewController, UICollectionViewDataSource, UICollectionV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL(string: imageURLArray[row])
+        let url = URL(string: imageURLArray[row!])
         imageApp.af_setImage(withURL: url!)
         
-        nameApp.text = nameArray[row]
+        nameApp.text = nameArray[row!]
         
         timeCollection.dataSource = self
         timeCollection.delegate = self
@@ -40,7 +40,7 @@ class TimeDetailApp: UIViewController, UICollectionViewDataSource, UICollectionV
             timesPackaged.append(date)
         }
         
-        appTimes = timesPackaged[row]
+        appTimes = timesPackaged[row!]
         
         return appTimes!
     }
@@ -50,6 +50,9 @@ class TimeDetailApp: UIViewController, UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        timeKeys.removeAll()
+        timeValues.removeAll()
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCells", for: indexPath) as! timeCells
         
         for item in appTimes!{

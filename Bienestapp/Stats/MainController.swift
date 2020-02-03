@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-var row = 0
+var row: Int?
 class MainController:UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var AppCollection: UICollectionView!

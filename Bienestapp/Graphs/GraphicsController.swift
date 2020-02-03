@@ -11,70 +11,95 @@ import UIKit
 
 class GraphicsController: UIViewController {
     
+    @IBOutlet weak var barchart: BarChartView!
     
-    @IBOutlet weak var pieChart: PieChartView!
-    
+    @IBOutlet weak var segmentedObject: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
-        var charValue: [Double] = [0]
-        let dateFormatter = DateFormatter()
-        for times in timeValues {
-            dateFormatter.dateFormat = "HH':'mm':'ss"
-            let date = dateFormatter.date(from: times)
-            charValue.append(Double((date?.timeIntervalSince1970)!))
+        var charValue: [Double] = []
+        var tiempoTotal = 0
+        
+        for values in totalArray {
+            
+            tiempoTotal += values.numberOfSeconds()
         }
         
-        customizeChart(dataPoints: timeKeys, values: charValue)
+        for times in totalArray {
+            
+            let timeInHours: Double = Double(times.numberOfSeconds()) * 100 / Double(tiempoTotal)
+            
+            charValue.append(Double(timeInHours))
+        }
+        
+        customizeChart(dataPoints: nameArray, values: charValue)
     }
     
     func customizeChart(dataPoints: [String], values: [Double]) {
         
-        // 1. Set ChartDataEntry
-        var dataEntries: [ChartDataEntry] = []
+        var dataEntries: [BarChartDataEntry] = []
+        
         for i in 0..<dataPoints.count {
-            let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i], data: dataPoints[i] as AnyObject)
+            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(values[i]))
             dataEntries.append(dataEntry)
         }
-        // 2. Set ChartDataSet
-        let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
-        pieChartDataSet.colors = colorsOfCharts(numbersOfColor: dataPoints.count)
-        // 3. Set ChartData
-        let pieChartData = PieChartData(dataSet: pieChartDataSet)
-        let format = NumberFormatter()
-        format.numberStyle = .none
-        let formatter = DefaultValueFormatter(formatter: format)
-        pieChartData.setValueFormatter(formatter)
-        // 4. Assign it to the chart’s data
-        pieChart.data = pieChartData
+        
+        let chartDataSet = BarChartDataSet(entries: dataEntries, label: "Each color represents an app")
+        
+        chartDataSet.colors = ChartColorTemplates.colorful()
+        
+        let chartData = BarChartData(dataSet: chartDataSet)
+        
+        barchart.backgroundColor = UIColor.white
+        
+        barchart.xAxis.valueFormatter = IndexAxisValueFormatter(values:nameArray)
+        //Also, you probably we want to add:
+        
+        barchart.xAxis.granularity = 1
+        
+        barchart.data = chartData
     }
     
-    private func colorsOfCharts(numbersOfColor: Int) -> [UIColor] {
-        var colors: [UIColor] = []
-        for _ in 0..<numbersOfColor {
-            let red = Double(arc4random_uniform(256))
-            let green = Double(arc4random_uniform(256))
-            let blue = Double(arc4random_uniform(256))
-            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
-            colors.append(color)
+    @IBAction func segmented(_ sender: UISegmentedControl) {
+        switch segmentedObject.selectedSegmentIndex {
+        case 0:
+            var charValue: [Double] = []
+            
+            for times in totalArray {
+                
+                let timeInHours: Double = Double(times.numberOfSeconds()) / (Double(60 * 60 * 24))
+                
+                charValue.append(Double(timeInHours))
+            }
+            
+            customizeChart(dataPoints: nameArray, values: charValue)
+            break
+        case 1:
+            var charValue: [Double] = []
+            
+            for times in totalArray {
+                
+                let timeInHours: Double = Double(times.numberOfSeconds()) / (Double(60 * 60 * 24 * 7))
+                
+                charValue.append(Double(timeInHours))
+            }
+            
+            customizeChart(dataPoints: nameArray, values: charValue)
+            break
+        case 2:
+            var charValue: [Double] = []
+            
+            for times in totalArray {
+                
+                let timeInHours: Double = Double(times.numberOfSeconds()) / (Double(60 * 60 * 24 * 7 * 4))
+                
+                charValue.append(Double(timeInHours))
+            }
+            
+            customizeChart(dataPoints: nameArray, values: charValue)
+            break
+        default:
+            break
         }
-        return colors
     }
     
-    /*
-     func customizeChart(dataPoints: [String], values: [Double]) {
-     
-     var dataEntries: [BarChartDataEntry] = []
-     
-     for i in 0..<dataPoints.count {
-     let dataEntry = BarChartDataEntry(x: Double(i), y: Double(values[i]))
-     dataEntries.append(dataEntry)
-     }
-     
-     let chartDataSet = BarChartDataSet(entries: dataEntries, label: "Bar Chart View")
-     
-     let chartData = BarChartData(dataSet: chartDataSet)
-     
-     barChart.data = chartData
-     }
-     */
 }

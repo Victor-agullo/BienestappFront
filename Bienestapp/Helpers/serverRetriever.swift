@@ -15,7 +15,6 @@ var avgArray: Array<String> = []
 var timeArray: Array<String> = []
 var dateArray: Array<Array<Dictionary<String, String>>> = []
 
-
 class serverRetriever {
     
     var jsonArray: NSArray?
