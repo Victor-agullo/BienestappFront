@@ -489,13 +489,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Xm-dl-RGp" customClass="BarChartView" customModule="Charts">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Xm-dl-RGp" customClass="BarChartView" customModule="Charts">
                                 <rect key="frame" x="0.0" y="148" width="414" height="365"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TZ5-9j-aGe">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TZ5-9j-aGe">
                                 <rect key="frame" x="20" y="113" width="374" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Daily"/>
                                     <segment title="Weekly"/>
@@ -505,18 +504,28 @@
                                     <action selector="segmented:" destination="RwQ-E2-dj7" eventType="valueChanged" id="wCo-Sf-ItH"/>
                                 </connections>
                             </segmentedControl>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uNM-xn-EgO" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="512" width="414" height="301"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="9Xm-dl-RGp" firstAttribute="top" secondItem="p2k-ra-8tK" secondAttribute="top" constant="60" id="4gT-IN-Xme"/>
                             <constraint firstItem="9Xm-dl-RGp" firstAttribute="leading" secondItem="p2k-ra-8tK" secondAttribute="leading" id="IAc-hE-khZ"/>
+                            <constraint firstItem="uNM-xn-EgO" firstAttribute="trailing" secondItem="p2k-ra-8tK" secondAttribute="trailing" id="Nu7-Wr-keO"/>
                             <constraint firstItem="p2k-ra-8tK" firstAttribute="trailing" secondItem="9Xm-dl-RGp" secondAttribute="trailing" id="RfP-Ji-180"/>
-                            <constraint firstItem="p2k-ra-8tK" firstAttribute="bottom" secondItem="9Xm-dl-RGp" secondAttribute="bottom" constant="300" id="xQY-jj-BBd"/>
+                            <constraint firstItem="TZ5-9j-aGe" firstAttribute="top" secondItem="p2k-ra-8tK" secondAttribute="top" constant="25" id="YUe-Eg-RBe"/>
+                            <constraint firstItem="p2k-ra-8tK" firstAttribute="trailing" secondItem="TZ5-9j-aGe" secondAttribute="trailing" constant="20" id="Zp7-VB-pzN"/>
+                            <constraint firstItem="9Xm-dl-RGp" firstAttribute="top" secondItem="TZ5-9j-aGe" secondAttribute="bottom" constant="7" id="a1f-xO-rou"/>
+                            <constraint firstItem="uNM-xn-EgO" firstAttribute="leading" secondItem="p2k-ra-8tK" secondAttribute="leading" id="frT-mO-y62"/>
+                            <constraint firstItem="uNM-xn-EgO" firstAttribute="bottom" secondItem="p2k-ra-8tK" secondAttribute="bottom" id="vtu-1e-X8S"/>
+                            <constraint firstItem="TZ5-9j-aGe" firstAttribute="leading" secondItem="p2k-ra-8tK" secondAttribute="leading" constant="20" id="ybv-8P-Kwp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="p2k-ra-8tK"/>
                     </view>
                     <connections>
                         <outlet property="barchart" destination="9Xm-dl-RGp" id="aLV-Tv-2Ax"/>
+                        <outlet property="pieChart" destination="uNM-xn-EgO" id="IHj-I7-o4U"/>
                         <outlet property="segmentedObject" destination="TZ5-9j-aGe" id="hnL-1f-Uiq"/>
                     </connections>
                 </viewController>

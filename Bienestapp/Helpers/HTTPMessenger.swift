@@ -35,7 +35,6 @@ class HTTPMessenger {
         let token = [
             "token" : UserDefaults.standard.value(forKey: "token")!
             ]as! [String:String]
-        
         let post = Alamofire.request(url, method: .post, parameters: params, headers: token)
         
         return post
@@ -57,6 +56,7 @@ class HTTPMessenger {
     func tokenSavior(response: DataResponse<Any>) {
         
         let token = jsonOpener(response: response)
+        print(token)
         
         UserDefaults.standard.setValue(token["token"], forKey: "token")
     }

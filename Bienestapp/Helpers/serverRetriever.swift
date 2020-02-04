@@ -11,7 +11,9 @@ import UIKit
 var imageURLArray: Array<String> = []
 var nameArray: Array<String> = []
 var totalArray: Array<String> = []
-var avgArray: Array<String> = []
+var dayAvgArray: Array<String> = []
+var weekAvgArray: Array<String> = []
+var monthAvgArray: Array<String> = []
 var timeArray: Array<String> = []
 var dateArray: Array<Array<Dictionary<String, String>>> = []
 
@@ -36,18 +38,24 @@ class serverRetriever {
                     let imageURL = item["icon"] as! String
                     let name = item["name"] as! String
                     let total = item["total"] as! String
-                    let avg = item["medio total"] as! String
+                    let dayAvg = item["medio diario"] as! String
+                    let weekAvg = item["medio semanal"] as! String
+                    let monthAvg = item["medio mensual"] as! String
                     
                     var timesOrdered = item.keysSortedByValue(using: #selector(NSNumber.compare(_:)))
-                    let timeToday = timesOrdered[1] as! String
+                    let timeToday = timesOrdered[3] as! String
                     let time = item[timeToday] as! String
                     
                     imageURLArray.append(imageURL)
                     nameArray.append(name)
                     totalArray.append(total)
-                    avgArray.append(avg)
+                    dayAvgArray.append(dayAvg)
+                    weekAvgArray.append(weekAvg)
+                    monthAvgArray.append(monthAvg)
                     timeArray.append(time)
                     
+                    timesOrdered.removeFirst()
+                    timesOrdered.removeFirst()
                     timesOrdered.removeFirst()
                     timesOrdered.removeLast()
                     timesOrdered.removeLast()

@@ -32,7 +32,7 @@ class LoginController: UIViewController {
         
         let directory = FileManager.default.urls(for:.documentDirectory, in: .userDomainMask)
         let rute = directory.first?.appendingPathComponent(name)
-
+        print(rute!)
         return rute!
     }
     

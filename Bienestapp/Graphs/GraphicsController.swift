@@ -12,6 +12,7 @@ import UIKit
 class GraphicsController: UIViewController {
     
     @IBOutlet weak var barchart: BarChartView!
+    @IBOutlet weak var pieChart: PieChartView!
     
     @IBOutlet weak var segmentedObject: UISegmentedControl!
     override func viewDidLoad() {
@@ -52,7 +53,7 @@ class GraphicsController: UIViewController {
         barchart.backgroundColor = UIColor.white
         
         barchart.xAxis.valueFormatter = IndexAxisValueFormatter(values:nameArray)
-        //Also, you probably we want to add:
+        //Also, you probably would want to add:
         
         barchart.xAxis.granularity = 1
         
@@ -64,9 +65,9 @@ class GraphicsController: UIViewController {
         case 0:
             var charValue: [Double] = []
             
-            for times in totalArray {
+            for times in dayAvgArray {
                 
-                let timeInHours: Double = Double(times.numberOfSeconds()) / (Double(60 * 60 * 24))
+                let timeInHours: Double = Double(times.numberOfSeconds())
                 
                 charValue.append(Double(timeInHours))
             }
@@ -76,9 +77,9 @@ class GraphicsController: UIViewController {
         case 1:
             var charValue: [Double] = []
             
-            for times in totalArray {
+            for times in weekAvgArray {
                 
-                let timeInHours: Double = Double(times.numberOfSeconds()) / (Double(60 * 60 * 24 * 7))
+                let timeInHours: Double = Double(times.numberOfSeconds())
                 
                 charValue.append(Double(timeInHours))
             }
@@ -88,9 +89,9 @@ class GraphicsController: UIViewController {
         case 2:
             var charValue: [Double] = []
             
-            for times in totalArray {
+            for times in monthAvgArray {
                 
-                let timeInHours: Double = Double(times.numberOfSeconds()) / (Double(60 * 60 * 24 * 7 * 4))
+                let timeInHours: Double = Double(times.numberOfSeconds())
                 
                 charValue.append(Double(timeInHours))
             }
