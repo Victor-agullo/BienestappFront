@@ -11,96 +11,45 @@ import UIKit
 
 class GraphicsController: UIViewController {
     
+    // objetos vista de los gráficos
     @IBOutlet weak var barchart: BarChartView!
     @IBOutlet weak var pieChart: PieChartView!
     
+    // objeto del botón segmentado
     @IBOutlet weak var segmentedObject: UISegmentedControl!
+    
+    // referencia a la clase de apoyo para generar gráficos
+    let drawer = ChartsDrawer.init()
+    
+    // al cargarse la pantalla se genera el gráfico sectorial
+    // del porcentaje de uso de las apps
     override func viewDidLoad() {
         super.viewDidLoad()
-        var charValue: [Double] = []
-        var tiempoTotal = 0
         
-        for values in totalArray {
-            
-            tiempoTotal += values.numberOfSeconds()
-        }
-        
-        for times in totalArray {
-            
-            let timeInHours: Double = Double(times.numberOfSeconds()) * 100 / Double(tiempoTotal)
-            
-            charValue.append(Double(timeInHours))
-        }
-        
-        customizeChart(dataPoints: nameArray, values: charValue)
+        drawer.pieChartDrawer(pieChart: pieChart)
     }
     
-    func customizeChart(dataPoints: [String], values: [Double]) {
-        
-        var dataEntries: [BarChartDataEntry] = []
-        
-        for i in 0..<dataPoints.count {
-            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(values[i]))
-            dataEntries.append(dataEntry)
-        }
-        
-        let chartDataSet = BarChartDataSet(entries: dataEntries, label: "Each color represents an app")
-        
-        chartDataSet.colors = ChartColorTemplates.colorful()
-        
-        let chartData = BarChartData(dataSet: chartDataSet)
-        
-        barchart.backgroundColor = UIColor.white
-        
-        barchart.xAxis.valueFormatter = IndexAxisValueFormatter(values:nameArray)
-        //Also, you probably would want to add:
-        
-        barchart.xAxis.granularity = 1
-        
-        barchart.data = chartData
-    }
-    
+    // botón segmentado en tres partes que, según la parte seleccionada,
+    // dibujará un gráfico con las medias de las aplicaciones por día,
+    // semana y mes.
     @IBAction func segmented(_ sender: UISegmentedControl) {
+        
         switch segmentedObject.selectedSegmentIndex {
+            
         case 0:
-            var charValue: [Double] = []
             
-            for times in dayAvgArray {
-                
-                let timeInHours: Double = Double(times.numberOfSeconds())
-                
-                charValue.append(Double(timeInHours))
-            }
-            
-            customizeChart(dataPoints: nameArray, values: charValue)
+            drawer.barChart(barchart: barchart, chartArray: dayAvgArray)
             break
         case 1:
-            var charValue: [Double] = []
             
-            for times in weekAvgArray {
-                
-                let timeInHours: Double = Double(times.numberOfSeconds())
-                
-                charValue.append(Double(timeInHours))
-            }
-            
-            customizeChart(dataPoints: nameArray, values: charValue)
+            drawer.barChart(barchart: barchart, chartArray: weekAvgArray)
             break
         case 2:
-            var charValue: [Double] = []
             
-            for times in monthAvgArray {
-                
-                let timeInHours: Double = Double(times.numberOfSeconds())
-                
-                charValue.append(Double(timeInHours))
-            }
-            
-            customizeChart(dataPoints: nameArray, values: charValue)
+            drawer.barChart(barchart: barchart, chartArray: monthAvgArray)
             break
         default:
             break
         }
     }
-    
 }

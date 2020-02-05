@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F1358B123E1911A001CB74A /* locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1358B023E1911A001CB74A /* locations.swift */; };
 		7F30EB4F23CDD1350044D9A6 /* AppCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30EB4E23CDD1350044D9A6 /* AppCells.swift */; };
 		7F61866723CC781300F369E9 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7F61866623CC781300F369E9 /* Settings.bundle */; };
 		7FA2BA9723DF1150007936BE /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA2BA9623DF1150007936BE /* MapController.swift */; };
@@ -17,6 +16,8 @@
 		7FA84C5923C5D154008046D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FA84C5823C5D154008046D7 /* Assets.xcassets */; };
 		7FA84C5C23C5D154008046D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA84C5A23C5D154008046D7 /* LaunchScreen.storyboard */; };
 		7FBCFBEB23E026CA00104EFF /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBCFBEA23E026CA00104EFF /* ProfileController.swift */; };
+		7FCD731223EAEA2E000D51D8 /* ChartsDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCD731123EAEA2E000D51D8 /* ChartsDrawer.swift */; };
+		7FCD731423EAEEE8000D51D8 /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCD731323EAEEE8000D51D8 /* TimeConverter.swift */; };
 		7FCE58DE23E30686001F7998 /* TimeDetailApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCE58DD23E30686001F7998 /* TimeDetailApp.swift */; };
 		7FE31DD323C7464500EF5530 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE31DD223C7464500EF5530 /* MainController.swift */; };
 		B97491AB23DDBFB7009F6D3D /* serverRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97491AA23DDBFB6009F6D3D /* serverRetriever.swift */; };
@@ -31,7 +32,6 @@
 /* Begin PBXFileReference section */
 		22F961D7E203CBB2E215246F /* Pods-Bienestapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bienestapp.debug.xcconfig"; path = "Target Support Files/Pods-Bienestapp/Pods-Bienestapp.debug.xcconfig"; sourceTree = "<group>"; };
 		34F8253464547E97A696A343 /* Pods-Bienestapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bienestapp.release.xcconfig"; path = "Target Support Files/Pods-Bienestapp/Pods-Bienestapp.release.xcconfig"; sourceTree = "<group>"; };
-		7F1358B023E1911A001CB74A /* locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locations.swift; sourceTree = "<group>"; };
 		7F30EB4E23CDD1350044D9A6 /* AppCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCells.swift; sourceTree = "<group>"; };
 		7F61866623CC781300F369E9 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		7FA2BA9623DF1150007936BE /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
@@ -42,6 +42,8 @@
 		7FA84C5823C5D154008046D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FA84C5B23C5D154008046D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FBCFBEA23E026CA00104EFF /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		7FCD731123EAEA2E000D51D8 /* ChartsDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsDrawer.swift; sourceTree = "<group>"; };
+		7FCD731323EAEEE8000D51D8 /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
 		7FCE58DD23E30686001F7998 /* TimeDetailApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDetailApp.swift; sourceTree = "<group>"; };
 		7FE31DD223C7464500EF5530 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		94BE0FB3536499F46AA629B3 /* Pods_Bienestapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bienestapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				7FA2BA9623DF1150007936BE /* MapController.swift */,
-				7F1358B023E1911A001CB74A /* locations.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -162,6 +163,8 @@
 				B97491AE23DDC03D009F6D3D /* HTTPMessenger.swift */,
 				B97491AA23DDBFB6009F6D3D /* serverRetriever.swift */,
 				7F61866623CC781300F369E9 /* Settings.bundle */,
+				7FCD731123EAEA2E000D51D8 /* ChartsDrawer.swift */,
+				7FCD731323EAEEE8000D51D8 /* TimeConverter.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -316,13 +319,14 @@
 				B9E6592623E580F000889C63 /* timeCells.swift in Sources */,
 				B9C3766023D8CD90000C5236 /* RestrictionsController.swift in Sources */,
 				B9C3766823D8EF83000C5236 /* restrictCells.swift in Sources */,
+				7FCD731423EAEEE8000D51D8 /* TimeConverter.swift in Sources */,
 				B97491AB23DDBFB7009F6D3D /* serverRetriever.swift in Sources */,
 				B9E6592923E6F43200889C63 /* GraphicsController.swift in Sources */,
+				7FCD731223EAEA2E000D51D8 /* ChartsDrawer.swift in Sources */,
 				7FA84C5423C5D152008046D7 /* LoginController.swift in Sources */,
 				7FE31DD323C7464500EF5530 /* MainController.swift in Sources */,
 				7FCE58DE23E30686001F7998 /* TimeDetailApp.swift in Sources */,
 				7FBCFBEB23E026CA00104EFF /* ProfileController.swift in Sources */,
-				7F1358B123E1911A001CB74A /* locations.swift in Sources */,
 				7F30EB4F23CDD1350044D9A6 /* AppCells.swift in Sources */,
 				7FA84C5223C5D152008046D7 /* AppDelegate.swift in Sources */,
 				7FA2BA9723DF1150007936BE /* MapController.swift in Sources */,

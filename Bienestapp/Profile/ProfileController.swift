@@ -25,7 +25,7 @@ class ProfileController: UIViewController {
     @IBAction func notificationsButt(_ sender: UIButton) {
         if self.pressed {
             notifications.setTitleColor(UIColor.purple, for: UIControl.State.normal)
-
+            
         } else {
             notifications.setTitleColor(UIColor.black, for: UIControl.State.normal)
         }

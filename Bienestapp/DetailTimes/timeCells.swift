@@ -10,6 +10,7 @@ import UIKit
 
 class timeCells: UICollectionViewCell {
     
+    // objetos que componen cada celda de la pantalla
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var date: UILabel!
 }

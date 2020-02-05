@@ -10,6 +10,7 @@ import UIKit
 
 class AppCells: UICollectionViewCell {
     
+    // objetos que componen cada celda de la pantalla
     @IBOutlet weak var AppIcon: UIImageView!
     @IBOutlet weak var AppTime: UILabel!
     @IBOutlet weak var AppName: UILabel!

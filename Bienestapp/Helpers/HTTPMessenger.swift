@@ -10,11 +10,11 @@ import UIKit
 import Alamofire
 
 class HTTPMessenger {
-
+    
     func urlModder(direction: String) -> URL {
         
         let urlString = "http://localhost:8888/bienestapp/public/index.php/api/"
-
+        
         let url = URL(string: urlString+direction)!
         
         return url
@@ -46,10 +46,10 @@ class HTTPMessenger {
         
         let token = [
             "token" : UserDefaults.standard.value(forKey: "token")!
-        ]as! [String:String]
+            ]as! [String:String]
         
         let get = Alamofire.request(url, method: .get, headers: token)
-
+        
         return get
     }
     
