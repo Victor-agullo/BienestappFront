@@ -26,6 +26,8 @@ class GraphicsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // función que compone el gráfico de sectores que representa
+        //el uso de las aplicaciones en un porcentaje
         drawer.pieChartDrawer(pieChart: pieChart)
     }
     
@@ -38,17 +40,26 @@ class GraphicsController: UIViewController {
             
         case 0:
             
+            // función que compone el gráfico de barras que representa
+            //el uso medio de las aplicaciones por día
             drawer.barChart(barchart: barchart, chartArray: dayAvgArray)
             break
         case 1:
             
+            // función que compone el gráfico de barras que representa
+            //el uso medio de las aplicaciones por semana
             drawer.barChart(barchart: barchart, chartArray: weekAvgArray)
             break
         case 2:
             
+            // función que compone el gráfico de barras que representa
+            //el uso medio de las aplicaciones por mes
             drawer.barChart(barchart: barchart, chartArray: monthAvgArray)
             break
         default:
+            
+            // por defecto se mostrará la primera gráfica de media por día
+            drawer.barChart(barchart: barchart, chartArray: dayAvgArray)
             break
         }
     }

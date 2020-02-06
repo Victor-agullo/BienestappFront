@@ -162,9 +162,9 @@
 				7FA84C5123C5D152008046D7 /* AppDelegate.swift */,
 				B97491AE23DDC03D009F6D3D /* HTTPMessenger.swift */,
 				B97491AA23DDBFB6009F6D3D /* serverRetriever.swift */,
-				7F61866623CC781300F369E9 /* Settings.bundle */,
 				7FCD731123EAEA2E000D51D8 /* ChartsDrawer.swift */,
 				7FCD731323EAEEE8000D51D8 /* TimeConverter.swift */,
+				7F61866623CC781300F369E9 /* Settings.bundle */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
