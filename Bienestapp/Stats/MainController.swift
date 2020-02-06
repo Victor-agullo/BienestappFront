@@ -10,8 +10,12 @@ import UIKit
 import AlamofireImage
 import UserNotifications
 
-// con esta variable pública se mantiene un seguimiento de la app seleccionada
+// row guarda el índice de la app seleccionada
 var row: Int?
+
+// auth guarda la elección del usuario para las notificaciones
+var auth: Bool?
+
 class MainController:UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     // representación del objeto vista en el que se hace la colección de apps
@@ -21,15 +25,25 @@ class MainController:UIViewController, UICollectionViewDataSource, UICollectionV
     // y se realiza la obtención de toda la información necesaria.
     override func viewDidLoad() {
         super.viewDidLoad()
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) {
-            (autorizado, error) in
-            if autorizado {
-                print("Permiso concedido")
-            } else {
-                print("Permiso denegado")
+        
+        // si el auth no tiene nada, se ejecuta esta función y si ya tiene valor, se salta
+        if auth == nil {
+            // salta un popup para aceptar o denegar las notificaciones
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) {
+                (authorized, error) in
+                
+                // si el usuario autoriza las notificaciones, el bool de auth es true
+                if authorized {
+                    auth = true
+                    
+                // si el usuario no las autoriza, el bool es false
+                } else {
+                    auth = false
+                }
             }
         }
         
+        //declaraciones para que se sepa dónde mandar la información
         AppCollection.dataSource = self
         AppCollection.delegate = self
         

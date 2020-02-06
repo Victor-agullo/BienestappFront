@@ -15,7 +15,7 @@ class HTTPMessenger {
         
         let urlString = "http://localhost:8888/bienestapp/public/index.php/api/"
         
-        let url = URL(string: urlString+direction)!
+        let url = URL(string: urlString + direction)!
         
         return url
     }

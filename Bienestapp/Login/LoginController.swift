@@ -46,7 +46,7 @@ class LoginController: UIViewController {
         
         // generación de la ruta
         let rute = directory.first?.appendingPathComponent(name)
-        
+        print(rute!)
         return rute!
     }
     
