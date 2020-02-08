@@ -9,12 +9,16 @@
 import UIKit
 import AlamofireImage
 
-// variables que permiten el acceso a los tiempos y su fecha a todas las demás clases
-var timeKeys: Array<String> = []
-var timeValues: Array<String> = []
-
 class TimeDetailApp: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    // referencias a los controladores necesarios en esta pantalla
+    var mainView: MainController?
+    var retrieved: serverRetriever?
+    
+    // variables que permiten el acceso a los tiempos y su fecha a todas las demás clases
+    var timeKeys: Array<String> = []
+    var timeValues: Array<String> = []
+
     // objetos de la pantalla
     @IBOutlet weak var imageApp: UIImageView!
     @IBOutlet weak var nameApp: UILabel!
@@ -29,11 +33,11 @@ class TimeDetailApp: UIViewController, UICollectionViewDataSource, UICollectionV
         super.viewDidLoad()
         
         // recepción y conversión del string recibido en la imagen de la app seleccionada
-        let url = URL(string: imageURLArray[row!])
+        let url = URL(string: (retrieved?.imageURLArray[(mainView?.row)!])!)
         imageApp.af_setImage(withURL: url!)
         
         // establece el nombre de la app según la app seleccionada en la pantalla anterior
-        nameApp.text = nameArray[row!]
+        nameApp.text = retrieved?.nameArray[(mainView?.row)!]
         
         timeCollection.dataSource = self
         timeCollection.delegate = self
@@ -48,13 +52,13 @@ class TimeDetailApp: UIViewController, UICollectionViewDataSource, UICollectionV
         var timesPackaged: Array<[Dictionary<String, String>]> = []
         
         // bucle que abre el array de arrays de diccionarios
-        for date in dateArray {
+        for date in (retrieved?.dateArray)! {
             // guardado de diccionarios en un array
             timesPackaged.append(date)
         }
         
         // obtención del diccionario que se requiere
-        appTimes = timesPackaged[row!]
+        appTimes = timesPackaged[(mainView?.row)!]
         
         return appTimes!
     }

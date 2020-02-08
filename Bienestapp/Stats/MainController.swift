@@ -10,13 +10,13 @@ import UIKit
 import AlamofireImage
 import UserNotifications
 
-// row guarda el índice de la app seleccionada
-var row: Int?
-
-// auth guarda la elección del usuario para las notificaciones
-var auth: Bool?
-
 class MainController:UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+
+    // row guarda el índice de la app seleccionada
+    var row: Int?
+    
+    // auth guarda la elección del usuario para las notificaciones
+    var auth: Bool?
     
     // representación del objeto vista en el que se hace la colección de apps
     @IBOutlet weak var AppCollection: UICollectionView!
@@ -34,11 +34,11 @@ class MainController:UIViewController, UICollectionViewDataSource, UICollectionV
                 
                 // si el usuario autoriza las notificaciones, el bool de auth es true
                 if authorized {
-                    auth = true
+                    self.auth = true
                     
                 // si el usuario no las autoriza, el bool es false
                 } else {
-                    auth = false
+                    self.auth = false
                 }
             }
         }

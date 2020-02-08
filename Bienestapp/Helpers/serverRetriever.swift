@@ -8,17 +8,17 @@
 
 import UIKit
 
-var imageURLArray: Array<String> = []
-var nameArray: Array<String> = []
-var totalArray: Array<String> = []
-var dayAvgArray: Array<String> = []
-var weekAvgArray: Array<String> = []
-var monthAvgArray: Array<String> = []
-var timeArray: Array<String> = []
-var dateArray: Array<Array<Dictionary<String, String>>> = []
-
 class serverRetriever {
     
+    var imageURLArray: Array<String> = []
+    var nameArray: Array<String> = []
+    var totalArray: Array<String> = []
+    var dayAvgArray: Array<String> = []
+    var weekAvgArray: Array<String> = []
+    var monthAvgArray: Array<String> = []
+    var timeArray: Array<String> = []
+    var dateArray: Array<Array<Dictionary<String, String>>> = []
+
     var jsonArray: NSArray?
     
     var HttpMessenger = HTTPMessenger()
@@ -46,13 +46,13 @@ class serverRetriever {
                     let timeToday = timesOrdered[3] as! String
                     let time = item[timeToday] as! String
                     
-                    imageURLArray.append(imageURL)
-                    nameArray.append(name)
-                    totalArray.append(total)
-                    dayAvgArray.append(dayAvg)
-                    weekAvgArray.append(weekAvg)
-                    monthAvgArray.append(monthAvg)
-                    timeArray.append(time)
+                    self.imageURLArray.append(imageURL)
+                    self.nameArray.append(name)
+                    self.totalArray.append(total)
+                    self.dayAvgArray.append(dayAvg)
+                    self.weekAvgArray.append(weekAvg)
+                    self.monthAvgArray.append(monthAvg)
+                    self.timeArray.append(time)
                     
                     timesOrdered.removeFirst()
                     timesOrdered.removeFirst()
@@ -74,7 +74,7 @@ class serverRetriever {
                         
                         container.append(timeFromDate!)
                     }
-                    dateArray.append(container)
+                    self.dateArray.append(container)
                 }
                 thisCollectionView.reloadData()
             }
