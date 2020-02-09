@@ -11,7 +11,11 @@ import AlamofireImage
 import UserNotifications
 
 class MainController:UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-
+    
+    // referencias a los controladores necesarios en esta pantalla
+    var retrieved: serverRetriever?
+    var httpMessenger = HTTPMessenger.init()
+    
     // row guarda el índice de la app seleccionada
     var row: Int?
     
@@ -36,12 +40,16 @@ class MainController:UIViewController, UICollectionViewDataSource, UICollectionV
                 if authorized {
                     self.auth = true
                     
-                // si el usuario no las autoriza, el bool es false
+                    // si el usuario no las autoriza, el bool es false
                 } else {
                     self.auth = false
                 }
             }
         }
+        
+        // si la app está autorizada, comparará el tiempo usado de las apps
+        // y si se ha excedido, mandará un mensaje
+        
         
         //declaraciones para que se sepa dónde mandar la información
         AppCollection.dataSource = self
@@ -51,9 +59,28 @@ class MainController:UIViewController, UICollectionViewDataSource, UICollectionV
         serverRetriever.init().infoGatherer(thisCollectionView: AppCollection, route: "times")
     }
     
+    // método por el que se comunica con el server para notificar un exceso
+    func notification() {
+        let app = httpMessenger.get(endpoint: "checkTime")
+        
+        app.responseJSON { response in
+            
+            // si la respuesta no está vacía, es porque el usuario ha excedido algún tiempo
+            if response.result.value != nil {
+                
+                let contenido = UNMutableNotificationContent()
+                
+                contenido.title = "Notificación de exceso"
+                contenido.subtitle = "Ha excedido los tiempos limitados en:"
+                contenido.body = response.result.value! as! String
+                contenido.badge = 3
+            }
+        }
+    }
+    
     // método que marca el número de objetos que se van a mostrar
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return nameArray.count
+        return (retrieved?.nameArray.count)!
     }
     
     // método que rellena los objetos con la información
@@ -62,11 +89,11 @@ class MainController:UIViewController, UICollectionViewDataSource, UICollectionV
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AppCells", for: indexPath) as! AppCells
         
         // transformación del string obtenido en una url para localizar la imagen
-        let url = URL(string: imageURLArray[indexPath.row])
+        let url = URL(string: (retrieved?.imageURLArray[indexPath.row])!)
         
         // llenado de objetos do componentes de la celda
-        cell.AppName.text = nameArray[indexPath.row]
-        cell.AppTime.text = timeArray[indexPath.row]
+        cell.AppName.text = retrieved?.nameArray[indexPath.row]
+        cell.AppTime.text = retrieved?.timeArray[indexPath.row]
         cell.AppIcon.af_setImage(withURL: url!)
         
         return cell

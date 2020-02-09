@@ -10,6 +10,7 @@ import UIKit
 
 class serverRetriever {
     
+    // arrays que recogen las variables de distintos propósitos
     var imageURLArray: Array<String> = []
     var nameArray: Array<String> = []
     var totalArray: Array<String> = []
@@ -19,22 +20,36 @@ class serverRetriever {
     var timeArray: Array<String> = []
     var dateArray: Array<Array<Dictionary<String, String>>> = []
 
+    // array que almacena toda la respuesta del json
     var jsonArray: NSArray?
     
+    // referencia a la clase encargada de gestionar las peticiones al server
     var HttpMessenger = HTTPMessenger()
     
+    // método que obtiene los valores de los campos de la respuesta
     func infoGatherer(thisCollectionView: UICollectionView, route: String) {
         
+        // se realiza la petición de datos
         let get = self.HttpMessenger.get(endpoint: route)
         
+        // obtención de la respuesta
         get.responseJSON { response in
             
+            // guardado de la respuesta, de haberla, en una variable
             if let JSON = response.result.value {
                 
+                // conversión de la respuesta en un array y guardado de este
                 self.jsonArray = JSON as? NSArray
                 
+                /*
+                 bucle en el que se diferencian tres procesos:
+                 · separación directa de los campos a obtener por índices
+                 · obtención indirecta de los campos y diccionarios de registros de tiempos
+                 · adición de ese valor obtenido a su correspondiente array
+                */
                 for item in self.jsonArray! as! [NSDictionary] {
                     
+                    // separación directa de los campos a obtener por índices
                     let imageURL = item["icon"] as! String
                     let name = item["name"] as! String
                     let total = item["total"] as! String
@@ -42,30 +57,33 @@ class serverRetriever {
                     let weekAvg = item["medio semanal"] as! String
                     let monthAvg = item["medio mensual"] as! String
                     
+                    // obtención indirecta de los campos y diccionarios de registros de tiempos
+                    
+                    // se ordenan todos los items recibidos, dejando en el medio de todos los
+                    // valores los registros de tiempos
                     var timesOrdered = item.keysSortedByValue(using: #selector(NSNumber.compare(_:)))
+                    
+                    // obtención del tiempo total por vía indirecta
                     let timeToday = timesOrdered[3] as! String
                     let time = item[timeToday] as! String
                     
-                    self.imageURLArray.append(imageURL)
-                    self.nameArray.append(name)
-                    self.totalArray.append(total)
-                    self.dayAvgArray.append(dayAvg)
-                    self.weekAvgArray.append(weekAvg)
-                    self.monthAvgArray.append(monthAvg)
-                    self.timeArray.append(time)
+                    // elimina los tres primero y últimos valores
+                    for _ in 1...3 {
+                        timesOrdered.removeFirst()
+                        timesOrdered.removeLast()
+                    }
                     
-                    timesOrdered.removeFirst()
-                    timesOrdered.removeFirst()
-                    timesOrdered.removeFirst()
-                    timesOrdered.removeLast()
-                    timesOrdered.removeLast()
-                    timesOrdered.removeLast()
-                    
+                    // declaración de variables temporales para ordenar los tiempos
                     var timeFromDate: Dictionary<String, String>?
                     var container: Array<Dictionary<String, String>> = []
                     
+                    // en el bucle se forman los diccionarios a partir del array
                     for index in timesOrdered {
+                        
+                        // separación del índice del array como key
                         let key:String = index as! String
+                        
+                        // y del valor como value
                         let value:String = item[index] as! String
                         
                         timeFromDate = [
@@ -74,8 +92,19 @@ class serverRetriever {
                         
                         container.append(timeFromDate!)
                     }
+                    
+                    // adición de cada valor obtenido a su correspondiente array
+                    self.imageURLArray.append(imageURL)
+                    self.nameArray.append(name)
+                    self.totalArray.append(total)
+                    self.dayAvgArray.append(dayAvg)
+                    self.weekAvgArray.append(weekAvg)
+                    self.monthAvgArray.append(monthAvg)
+                    self.timeArray.append(time)
                     self.dateArray.append(container)
                 }
+                
+                // se refresca el collectionView para colocar los valores
                 thisCollectionView.reloadData()
             }
         }
