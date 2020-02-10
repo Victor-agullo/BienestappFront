@@ -29,26 +29,34 @@ class MainController:UIViewController, UICollectionViewDataSource, UICollectionV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // si hay una variable de auth guardada, la establece
+        if (UserDefaults.standard.value(forKey: "auth") != nil) {
+            MainController.auth = (UserDefaults.standard.value(forKey: "auth") as! Bool)
+        }
+        
         // si el auth no tiene nada, se ejecuta esta función y si ya tiene valor, se salta
         if MainController.auth == nil {
+            
             // salta un popup para aceptar o denegar las notificaciones
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) {
                 (authorized, error) in
                 
                 // si el usuario autoriza las notificaciones, el bool de auth es true
                 if authorized {
-                    MainController.auth = true
+                    MainController.auth! = true
                     
                     // si el usuario no las autoriza, el bool es false
                 } else {
-                    MainController.auth = false
+                    MainController.auth! = false
                 }
             }
         }
-        
+
         // si la app está autorizada, comparará el tiempo usado de las apps
         // y si se ha excedido, mandará un mensaje
-        
+        if MainController.auth! == true {
+            notification()
+        }
         
         //declaraciones para que se sepa dónde mandar la información
         AppCollection.dataSource = self
@@ -56,24 +64,36 @@ class MainController:UIViewController, UICollectionViewDataSource, UICollectionV
         
         // llamada a la clase serverRetriever que gestiona la información obtenida del servidor
         serverRetriever.infoGatherer(thisCollectionView: AppCollection, route: "times")
-        
-        notification()
     }
     
     // método por el que se comunica con el server para notificar un exceso
     private func notification() {
-        let app = httpMessenger.get(endpoint: "checkTime")
+        let apps = httpMessenger.get(endpoint: "checkRestrictions")
         
-        app.responseJSON { response in
-            
-            // si la respuesta no está vacía, es porque el usuario ha excedido algún tiempo
-            if response.result.value != nil {
+        apps.responseJSON { response in
+            // guardado de la respuesta, de haberla, en una variable
+            if let JSON = response.result.value {
+                
+                // conversión de la respuesta en un array y guardado de este
+                let jsonArray = JSON as? NSArray
+                
+                //se crea una variable donde estarán los nombres de las apps
+                var appRestricted: Array<String> = []
+                
+                // se realiza un array con nombres únicos de las apps
+                for app in jsonArray! as! [NSDictionary] {
+                    let name = app["name"] as! String
+                    
+                    if !(appRestricted.contains(name)) {
+                        appRestricted.append(name)
+                    }
+                }
                 
                 let contenido = UNMutableNotificationContent()
                 
                 contenido.title = "Notificación de exceso"
                 contenido.subtitle = "Ha excedido los tiempos limitados en:"
-                contenido.body = response.result.value! as! String
+                contenido.body = appRestricted.joined(separator:" ")
                 contenido.badge = 3
             }
         }

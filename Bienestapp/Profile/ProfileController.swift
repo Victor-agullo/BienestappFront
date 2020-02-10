@@ -20,6 +20,20 @@ class ProfileController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // si auth es true, el color del botón avisará de ello por su color
+        if MainController.auth! == true {
+            notifications.setTitleColor(UIColor.purple, for: UIControl.State.normal)
+        } else{
+            notifications.setTitleColor(UIColor.black, for: UIControl.State.normal)
+        }
+        
+        // si reversed es true, el color del botón avisará de ello por su color
+        if reversed == true {
+            notifications.setTitleColor(UIColor.purple, for: UIControl.State.normal)
+        } else{
+            notifications.setTitleColor(UIColor.black, for: UIControl.State.normal)
+        }
     }
     
     // botón que avisa al usuario del estado de disposición de las notificaciones
@@ -29,7 +43,7 @@ class ProfileController: UIViewController {
         MainController.auth!.toggle()
         
         // con el valor cambiado se cambia también el color del botón
-        switcher(object: notifications, flag: (MainController.auth)!)
+        switcher(object: notifications, flag: (MainController.auth)!, name: "auth")
     }
     
     // botón que avisa al usuario del estado de disposición de la mensajería
@@ -39,22 +53,24 @@ class ProfileController: UIViewController {
         reversed.toggle()
         
         // con el valor cambiado se cambia también el color del botón
-        switcher(object: messages, flag: reversed)
+        switcher(object: messages, flag: reversed, name: "reversed")
     }
     
     // función que recoge una booleana y un botón para que,
     // según su valor, se cambie de color el botón
-    func switcher(object: UIButton, flag: Bool) {
+    func switcher(object: UIButton, flag: Bool, name: String) {
         if flag {
             // como la función del color necesita estar en el hilo principal,
             // se llama a usar una cola asíncrona
             DispatchQueue.main.async {
                 object.setTitleColor(UIColor.purple, for: UIControl.State.normal)
             }
+            UserDefaults.standard.setValue(flag, forKey: name)
         } else {
             DispatchQueue.main.async {
                 object.setTitleColor(UIColor.black, for: UIControl.State.normal)
             }
+            UserDefaults.standard.setValue(flag, forKey: name)
         }
     }
 }
