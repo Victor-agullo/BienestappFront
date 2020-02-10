@@ -11,9 +11,6 @@ import UserNotifications
 
 class ProfileController: UIViewController {
     
-    // referencias a los controladores necesarios en esta pantalla
-    var mainView: MainController?
-    
     // referencias a los botones de notifications y messages
     @IBOutlet weak var notifications: UIButton!
     @IBOutlet weak var messages: UIButton!
@@ -29,10 +26,10 @@ class ProfileController: UIViewController {
     // y permite activarlas o desactivarlas con pulsarlo
     @IBAction func notificationsButt(_ sender: UIButton) {
         // al pulsar el botón se cambia el valor del permiso de notifications
-        mainView?.auth!.toggle()
+        MainController.auth!.toggle()
         
         // con el valor cambiado se cambia también el color del botón
-        switcher(object: notifications, flag: (mainView?.auth)!)
+        switcher(object: notifications, flag: (MainController.auth)!)
     }
     
     // botón que avisa al usuario del estado de disposición de la mensajería

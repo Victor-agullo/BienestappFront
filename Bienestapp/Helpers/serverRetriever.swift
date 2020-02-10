@@ -11,26 +11,26 @@ import UIKit
 class serverRetriever {
     
     // arrays que recogen las variables de distintos propósitos
-    var imageURLArray: Array<String> = []
-    var nameArray: Array<String> = []
-    var totalArray: Array<String> = []
-    var dayAvgArray: Array<String> = []
-    var weekAvgArray: Array<String> = []
-    var monthAvgArray: Array<String> = []
-    var timeArray: Array<String> = []
-    var dateArray: Array<Array<Dictionary<String, String>>> = []
+    static var imageURLArray: Array<String> = []
+    static var nameArray: Array<String> = []
+    static var totalArray: Array<String> = []
+    static var dayAvgArray: Array<String> = []
+    static var weekAvgArray: Array<String> = []
+    static var monthAvgArray: Array<String> = []
+    static var timeArray: Array<String> = []
+    static var dateArray: Array<Array<Dictionary<String, String>>> = []
 
-    // array que almacena toda la respuesta del json
-    var jsonArray: NSArray?
-    
-    // referencia a la clase encargada de gestionar las peticiones al server
-    var HttpMessenger = HTTPMessenger()
-    
     // método que obtiene los valores de los campos de la respuesta
-    func infoGatherer(thisCollectionView: UICollectionView, route: String) {
+    static func infoGatherer(thisCollectionView: UICollectionView, route: String) {
+        
+        // referencia a la clase encargada de gestionar las peticiones al server
+        let HttpMessenger = HTTPMessenger()
+        
+        // array que almacena toda la respuesta del json
+        var jsonArray: NSArray?
         
         // se realiza la petición de datos
-        let get = self.HttpMessenger.get(endpoint: route)
+        let get = HttpMessenger.get(endpoint: route)
         
         // obtención de la respuesta
         get.responseJSON { response in
@@ -39,7 +39,7 @@ class serverRetriever {
             if let JSON = response.result.value {
                 
                 // conversión de la respuesta en un array y guardado de este
-                self.jsonArray = JSON as? NSArray
+                jsonArray = JSON as? NSArray
                 
                 /*
                  bucle en el que se diferencian tres procesos:
@@ -47,7 +47,7 @@ class serverRetriever {
                  · obtención indirecta de los campos y diccionarios de registros de tiempos
                  · adición de ese valor obtenido a su correspondiente array
                 */
-                for item in self.jsonArray! as! [NSDictionary] {
+                for item in jsonArray! as! [NSDictionary] {
                     
                     // separación directa de los campos a obtener por índices
                     let imageURL = item["icon"] as! String
@@ -94,14 +94,14 @@ class serverRetriever {
                     }
                     
                     // adición de cada valor obtenido a su correspondiente array
-                    self.imageURLArray.append(imageURL)
-                    self.nameArray.append(name)
-                    self.totalArray.append(total)
-                    self.dayAvgArray.append(dayAvg)
-                    self.weekAvgArray.append(weekAvg)
-                    self.monthAvgArray.append(monthAvg)
-                    self.timeArray.append(time)
-                    self.dateArray.append(container)
+                    imageURLArray.append(imageURL)
+                    nameArray.append(name)
+                    totalArray.append(total)
+                    dayAvgArray.append(dayAvg)
+                    weekAvgArray.append(weekAvg)
+                    monthAvgArray.append(monthAvg)
+                    timeArray.append(time)
+                    dateArray.append(container)
                 }
                 
                 // se refresca el collectionView para colocar los valores

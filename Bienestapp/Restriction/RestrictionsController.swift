@@ -10,8 +10,6 @@ import UIKit
 import AlamofireImage
 
 class RestrictionController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    // referencias a los controladores necesarios en esta pantalla
-    var retrieved: serverRetriever?
     
     // referencia a los objetos de la pantalla selectores de fechas y a la vista dentro de la que se
     // ponen las aplicaciones disponibles para seleccionar una restriccion
@@ -43,15 +41,15 @@ class RestrictionController: UIViewController, UICollectionViewDataSource, UICol
     
     // método que marca el número de objetos que se van a mostrar
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (retrieved?.nameArray.count)!
+        return serverRetriever.nameArray.count
     }
     
     // método que rellena los objetos con la información
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "restrictCells", for: indexPath) as! restrictCells
-        let url = URL(string: (retrieved?.imageURLArray[indexPath.row])!)
+        let url = URL(string: serverRetriever.imageURLArray[indexPath.row])
         
-        cell.restrict_name.text = retrieved?.nameArray[indexPath.row]
+        cell.restrict_name.text = serverRetriever.nameArray[indexPath.row]
         cell.restrict_image.af_setImage(withURL: url!)
         
         return cell
@@ -61,7 +59,7 @@ class RestrictionController: UIViewController, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "restrictCells", for: indexPath) as! restrictCells
         
-        cell.restrict_name.text = retrieved?.nameArray[indexPath.row]
+        cell.restrict_name.text = serverRetriever.nameArray[indexPath.row]
         
         cellName = cell.restrict_name.text!
     }

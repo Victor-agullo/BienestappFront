@@ -11,9 +11,6 @@ import UIKit
 
 class GraphicsController: UIViewController {
     
-    // referencias a los controladores necesarios en esta pantalla
-    var retrieved: serverRetriever?
-    
     // objetos vista de los gráficos
     @IBOutlet weak var barchart: BarChartView!
     @IBOutlet weak var pieChart: PieChartView!
@@ -21,17 +18,17 @@ class GraphicsController: UIViewController {
     // objeto del botón segmentado
     @IBOutlet weak var segmentedObject: UISegmentedControl!
     
-    // referencia a la clase de apoyo para generar gráficos
-    let drawer = ChartsDrawer.init()
-    
     // al cargarse la pantalla se genera el gráfico sectorial
     // del porcentaje de uso de las apps
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // función que compone el gráfico de sectores que representa
-        //el uso de las aplicaciones en un porcentaje
-        drawer.pieChartDrawer(pieChart: pieChart)
+        //el total de uso de las aplicaciones en un porcentaje
+        ChartsDrawer.pieChartDrawer(pieChart: pieChart)
+        
+        // por defecto se mostrará la primera gráfica de media por día
+        ChartsDrawer.barChart(barchart: barchart, chartArray: serverRetriever.dayAvgArray)
     }
     
     // botón segmentado en tres partes que, según la parte seleccionada,
@@ -45,24 +42,21 @@ class GraphicsController: UIViewController {
             
             // función que compone el gráfico de barras que representa
             //el uso medio de las aplicaciones por día
-            drawer.barChart(barchart: barchart, chartArray: (retrieved?.dayAvgArray)!)
+            ChartsDrawer.barChart(barchart: barchart, chartArray: serverRetriever.dayAvgArray)
             break
         case 1:
             
             // función que compone el gráfico de barras que representa
             //el uso medio de las aplicaciones por semana
-            drawer.barChart(barchart: barchart, chartArray: (retrieved?.weekAvgArray)!)
+            ChartsDrawer.barChart(barchart: barchart, chartArray: serverRetriever.weekAvgArray)
             break
         case 2:
             
             // función que compone el gráfico de barras que representa
             //el uso medio de las aplicaciones por mes
-            drawer.barChart(barchart: barchart, chartArray: (retrieved?.monthAvgArray)!)
+            ChartsDrawer.barChart(barchart: barchart, chartArray: serverRetriever.monthAvgArray)
             break
         default:
-            
-            // por defecto se mostrará la primera gráfica de media por día
-            drawer.barChart(barchart: barchart, chartArray: (retrieved?.dayAvgArray)!)
             break
         }
     }

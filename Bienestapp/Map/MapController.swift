@@ -15,9 +15,6 @@ class MapController: UIViewController, CLLocationManagerDelegate {
     // referencia a la clase que maneja las peticiones
     var HttpMessenger = HTTPMessenger()
     
-    // referencias a los controladores necesarios en esta pantalla
-    var retrieved: serverRetriever?
-    
     // objeto de vista del mapa donde se muestra éste
     @IBOutlet weak var map: MKMapView!
     
@@ -124,8 +121,8 @@ class MapController: UIViewController, CLLocationManagerDelegate {
             let annotation = MKPointAnnotation()
             
             // edición de datos de la marca de mapa
-            annotation.title = retrieved?.nameArray[locations]
-            annotation.subtitle = retrieved?.timeArray[locations]
+            annotation.title = serverRetriever.nameArray[locations]
+            annotation.subtitle = serverRetriever.timeArray[locations]
             
             annotation.coordinate = CLLocationCoordinate2D(
                 latitude: CLLocationDegrees(latitudeArray[locations])!,
