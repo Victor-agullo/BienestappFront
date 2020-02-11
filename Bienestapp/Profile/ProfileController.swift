@@ -18,21 +18,43 @@ class ProfileController: UIViewController {
     // variable para el envío de mensajes desde la api al correo
     var reversed = true
     
+    var HttpMessenger = HTTPMessenger.init()
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var mailLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // si auth es true, el color del botón avisará de ello por su color
-        if MainController.auth! == true {
+        if MainController.auth == true {
             notifications.setTitleColor(UIColor.purple, for: UIControl.State.normal)
         } else{
             notifications.setTitleColor(UIColor.black, for: UIControl.State.normal)
         }
         
-        // si reversed es true, el color del botón avisará de ello por su color
-        if reversed == true {
-            notifications.setTitleColor(UIColor.purple, for: UIControl.State.normal)
-        } else{
-            notifications.setTitleColor(UIColor.black, for: UIControl.State.normal)
+        // método que le pone nombre y email al usuario que consulta el perfil
+        fillingNames()
+    }
+    
+    func fillingNames() {
+        
+        // getter del servidor que obtiene el nombre y la contraseña del user
+        let infoUser = HttpMessenger.get(endpoint: "userInfo")
+        
+        infoUser.responseJSON { response in
+            
+            // guardado de la respuesta, de haberla, en una variable
+            if let JSON = response.result.value {
+                
+                // conversión de la respuesta en un array y guardado de este
+                let jsonArray = JSON as? NSArray
+                
+                for item in jsonArray! as! [NSDictionary] {
+                    self.nameLabel.text! = item["name"] as! String
+                    
+                    self.mailLabel.text! = item["email"] as! String
+                }
+            }
         }
     }
     
@@ -40,10 +62,10 @@ class ProfileController: UIViewController {
     // y permite activarlas o desactivarlas con pulsarlo
     @IBAction func notificationsButt(_ sender: UIButton) {
         // al pulsar el botón se cambia el valor del permiso de notifications
-        MainController.auth!.toggle()
+        MainController.auth.toggle()
         
         // con el valor cambiado se cambia también el color del botón
-        switcher(object: notifications, flag: (MainController.auth)!, name: "auth")
+        switcher(object: notifications, flag: (MainController.auth), name: "auth")
     }
     
     // botón que avisa al usuario del estado de disposición de la mensajería
@@ -72,5 +94,15 @@ class ProfileController: UIViewController {
             }
             UserDefaults.standard.setValue(flag, forKey: name)
         }
+    }
+    
+    // botón que manda información al servidor para que le mande un correo al usuario con una nueva contraseña
+    @IBAction func newPassButt(_ sender: UIButton) {
+        let params = [
+            "name" : nameLabel.text!,
+            "email" : mailLabel.text!,
+        ]
+        
+        let _ = HttpMessenger.logPost(endpoint: "forgot", params: params)
     }
 }

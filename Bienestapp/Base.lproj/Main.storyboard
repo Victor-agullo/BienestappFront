@@ -18,7 +18,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70d-Ty-XiC">
-                                <rect key="frame" x="164" y="104" width="87" height="41"/>
+                                <rect key="frame" x="53" y="104" width="307" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.37647058820000001" green="0.1058823529" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="-1" height="-1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c82-94-Hrb">
+                                <rect key="frame" x="53" y="153" width="307" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
                                 <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -66,19 +75,34 @@
                                     <action selector="notificationsButt:" destination="1vt-jJ-7fJ" eventType="touchUpInside" id="KfF-sx-1gZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OM0-XK-HW9">
+                                <rect key="frame" x="53" y="541" width="297" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBoldItalic" family="Avenir Next" pointSize="20"/>
+                                <size key="titleShadowOffset" width="-1" height="-1"/>
+                                <state key="normal" title="¿Quieres una nueva contraseña?">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="newPassButt:" destination="1vt-jJ-7fJ" eventType="touchUpInside" id="byc-mW-amx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Qhr-9Z-P3y"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="contact_card" id="MUL-Xm-fLq"/>
                     <connections>
+                        <outlet property="mailLabel" destination="c82-94-Hrb" id="5fk-FH-psr"/>
                         <outlet property="messages" destination="Dv1-HS-AtT" id="bgb-bz-aab"/>
+                        <outlet property="nameLabel" destination="70d-Ty-XiC" id="htw-Ok-ftg"/>
                         <outlet property="notifications" destination="Yty-9N-h5p" id="WiZ-l1-tmw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MXF-71-oZz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-243" y="376"/>
+            <point key="canvasLocation" x="-243.47826086956525" y="375.66964285714283"/>
         </scene>
         <!--Restrictions-->
         <scene sceneID="IvM-Id-7rm">
@@ -95,20 +119,20 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tiempo de inicio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHc-yh-SBh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tiempo de inicio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHc-yh-SBh">
                                 <rect key="frame" x="265" y="556" width="126" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tiempo de fin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfc-3W-okE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tiempo de fin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfc-3W-okE">
                                 <rect key="frame" x="276" y="646" width="105" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Oy1-iw-OZG" userLabel="restrictionView">
-                                <rect key="frame" x="10" y="64" width="394" height="560"/>
+                                <rect key="frame" x="10" y="64" width="394" height="472"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Uur-f5-9ce">
                                     <size key="itemSize" width="100" height="100"/>
@@ -199,9 +223,9 @@
                             <constraint firstItem="Oy1-iw-OZG" firstAttribute="leading" secondItem="DtJ-5b-W8D" secondAttribute="leading" constant="10" id="GNt-pD-cgR"/>
                             <constraint firstItem="DtJ-5b-W8D" firstAttribute="trailing" secondItem="Oy1-iw-OZG" secondAttribute="trailing" constant="10" id="GjD-gh-dum"/>
                             <constraint firstItem="Oy1-iw-OZG" firstAttribute="top" secondItem="DtJ-5b-W8D" secondAttribute="top" constant="20" id="HuF-aa-39m"/>
-                            <constraint firstAttribute="bottom" secondItem="aHc-yh-SBh" secondAttribute="bottom" constant="231" id="SN3-as-LXX"/>
+                            <constraint firstAttribute="bottom" secondItem="aHc-yh-SBh" secondAttribute="bottom" constant="319" id="SN3-as-LXX"/>
                             <constraint firstItem="yfc-3W-okE" firstAttribute="top" secondItem="aHc-yh-SBh" secondAttribute="bottom" constant="69" id="ZL4-lc-obl"/>
-                            <constraint firstItem="DtJ-5b-W8D" firstAttribute="trailing" secondItem="aHc-yh-SBh" secondAttribute="trailing" constant="46" id="g6e-uv-lQg"/>
+                            <constraint firstItem="DtJ-5b-W8D" firstAttribute="trailing" secondItem="aHc-yh-SBh" secondAttribute="trailing" constant="23" id="g6e-uv-lQg"/>
                             <constraint firstItem="aHc-yh-SBh" firstAttribute="top" secondItem="Oy1-iw-OZG" secondAttribute="bottom" constant="20" id="huA-Bv-at0"/>
                             <constraint firstItem="aHc-yh-SBh" firstAttribute="centerX" secondItem="yfc-3W-okE" secondAttribute="centerX" id="s9N-tT-nfD"/>
                         </constraints>

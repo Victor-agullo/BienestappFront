@@ -26,9 +26,6 @@ class serverRetriever {
         // referencia a la clase encargada de gestionar las peticiones al server
         let HttpMessenger = HTTPMessenger()
         
-        // array que almacena toda la respuesta del json
-        var jsonArray: NSArray?
-        
         // se realiza la petición de datos
         let get = HttpMessenger.get(endpoint: route)
         
@@ -39,7 +36,7 @@ class serverRetriever {
             if let JSON = response.result.value {
                 
                 // conversión de la respuesta en un array y guardado de este
-                jsonArray = JSON as? NSArray
+                let jsonArray = JSON as? NSArray
                 
                 /*
                  bucle en el que se diferencian tres procesos:

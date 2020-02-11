@@ -103,6 +103,15 @@ class LoginController: UIViewController {
                     // al ser un login, se recoge la respuesta para obtener el token
                     self.HttpMessenger.tokenSavior(response: response)
                     
+                    // para modificar los parámetros se convierte la constante en variable
+                    var params = parameters
+                    
+                    // el csv no es necesario guardarlo ya que no es un archivo inmutable
+                    params.removeValue(forKey: "csvFile")
+                    
+                    // se guarda el formato válido en userdefaults
+                    UserDefaults.standard.set(params, forKey: "user")
+                    
                     // si todo sale bien, se realiza el segue
                     self.performSegue(withIdentifier: "Logged", sender: from)
                     
